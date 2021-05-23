@@ -6,6 +6,21 @@ const initalState = () => ({
 	form: {},
 	visible: false
 })
+// const initalState = () => ({
+// 	api_url: "/api.json",
+// 	step_section: 1,
+// 	step_question: 3,
+// 	sections: [],
+// 	form: {
+// 		nick_name: "Vinicius",
+// 		full_name: "Vinicius Bassalobre",
+// 		doc_number: "406.145.898-19",
+// 		birthdate: "08/04/1992",
+// 	},
+// 	visible: false
+// })
+
+Vue.directive('mask', VueMask.VueMaskDirective)
 new Vue({
 	el: '#app',
 	data() {
@@ -49,13 +64,16 @@ new Vue({
 			return steps
 		},
 		can_next() {
-			let qty_success = this.current_question.inputs.map(x => this.form[x.field]).filter(x => x).length
+			let qty_success = this.current_question.inputs.map(x => this.form[x.field] && this.testRegex(x.regex, this.form[x.field])).filter(x => x).length
 			let qty_questions = this.current_question.inputs.length
-			console.log(qty_success, qty_questions)
 			return qty_success == qty_questions
 		}
 	},
 	methods: {
+		testRegex(rule, value) {
+			let regex = new RegExp(rule ?? '$')
+			return regex.test(value ?? "")
+		},
 		getProgressSectionPercentage(step) {
 			if (step.index > this.step_section) return "0%"
 			if (step.index < this.step_section) return "100%"

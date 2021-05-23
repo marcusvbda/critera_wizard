@@ -60,9 +60,9 @@
 				</div>
 				<div class="answer-section my-3">
 					<div class="row" v-for="(input,i) in inputs" :key="i">
-						<div class="col-md-6 col-sm-12" v-if=" input.type =='text'">
-							<div class="input-group" :class="{'is-success' : form[input.field]}">
-								<input :type="input.type" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
+						<div class="col-md-6 col-sm-12" v-if="['text'].includes(input.type)">
+							<div class="input-group" :class="{'is-success' : testRegex(input.regex,form[input.field])}">
+								<input :type="input.type" v-mask="input.mask" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
 							</div>
 						</div>
 					</div>
@@ -78,8 +78,8 @@
 			</div>
 		</div>
 	</main>
-	<script src=" ./src/assets/vue/js/vue2.min.js">
-	</script>
+	<script src=" ./src/assets/vue/js/vue2.min.js"></script>
+	<script src="./src/assets/vue/js/v-mask.min.js"></script>
 	<script src="./src/components/dynamic_component.js"></script>
 	<script src="./src/services/app.js"></script>
 

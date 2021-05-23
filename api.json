@@ -8,9 +8,9 @@
 					"inputs" : [
 						{
 							"placeholder" : "Como podemos te chamar ?",
-							"field" : "nickname" ,
+							"field" : "nick_name" ,
 							"type" : "text",
-							"required" : true
+							"regex" : "^[^\\s]+$"
 						}
 					]
 				}
@@ -21,24 +21,48 @@
 			"progress_color": "#AED145",
 			"questions" : [
 				{
-					"text" : "<p>{{context.nickname}}, qual é seu nome completo ?<p>",
+					"text" : "<p>{{context.nick_name}}, qual é seu nome completo ?<p>",
 					"inputs" : [
 						{
 							"placeholder" : "Ex: João da Silva",
 							"field" : "full_name" ,
 							"type" : "text",
-							"required" : true
+							"regex" : "^\\s*\\S+(?:\\s+\\S+)+\\s*$"
 						}
 					]
 				},
 				{
-					"text" : "<p>bla bla bla<p>",
+					"text" : "<p>Qual o número do seu CPF?<p>",
 					"inputs" : [
 						{
-							"placeholder" : "Ex: João da Silva",
-							"field" : "full_name" ,
+							"placeholder" : "000.000.000-00",
+							"field" : "doc_number" ,
 							"type" : "text",
-							"required" : true
+							"regex" : "^.{13,}$",
+							"mask" : "###.###.###-##"
+						}
+					]
+				},
+				{
+					"text" : "<p>Qual sua data de nascimento?<p>",
+					"inputs" : [
+						{
+							"placeholder" : "dia/mês/ano",
+							"field" : "birthdate" ,
+							"type" : "text",
+							"regex" : "^\\d{2}\\\/\\d{2}\\\/\\d{4}$",
+							"mask" : "##/##/####"
+						}
+					]
+				},
+				{
+					"text" : "<p>Qual seu gênero?<p>",
+					"inputs" : [
+						{
+							"placeholder" : "",
+							"field" : "gender" ,
+							"type" : "text",
+							"regex" : ""
 						}
 					]
 				}
