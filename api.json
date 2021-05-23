@@ -64,14 +64,112 @@
 							"validation_rule" : "^[^\\s]+$",
 							"options" : [
 								{
-									"value" : "m", 
+									"value" : "male", 
 									"label" : "Masculino"
 								},
 								{
-									"value" : "f", 
+									"value" : "female", 
 									"label" : "Feminino"
 								}
 							]
+						}
+					]
+				},
+				{
+					"text" : "<p>Qual seu estado civil?<p>",
+					"inputs" : [
+						{
+							"field" : "marital_status" ,
+							"type" : "radio",
+							"validation_rule" : "^[^\\s]+$",
+							"options" : [
+								{
+									"value" : "married", 
+									"label" : "Casado"
+								},
+								{
+									"value" : "divorced", 
+									"label" : "Divorciado"
+								},
+								{
+									"value" : "stable union", 
+									"label" : "Namorando"
+								},
+								{
+									"value" : "single", 
+									"label" : "Solteiro"
+								}
+							]
+						}
+					]
+				},
+				{
+					"text" : "<p>Você tem filhos?<p>",
+					"inputs" : [
+						{
+							"field" : "has_children" ,
+							"type" : "radio",
+							"validation_rule" : "^[^\\s]+$",
+							"options" : [
+								{
+									"value" : true, 
+									"label" : "Sim"
+								},
+								{
+									"value" : false, 
+									"label" : "Não"
+								}
+							]
+						}
+					]
+				},
+				{
+					"text" : "<p>Nível de escolaridade?<p>",
+					"inputs" : [
+						{
+							"field" : "level_of_education" ,
+							"type" : "radio",
+							"validation_rule" : "^[^\\s]+$",
+							"options" : [
+								{
+									"value" : "incomplete medium", 
+									"label" : "Médio incompleto"
+								},
+								{
+									"value" : "complete medium", 
+									"label" : "Médio completo"
+								},
+								{
+									"value" : "university incompleto", 
+									"label" : "Superior incompleto"
+								},
+								{
+									"value" : "complete university", 
+									"label" : "Superior completo"
+								}
+							]
+						}
+					]
+				},
+				{
+					"text" : "<p>Qual sua altura?<p>",
+					"inputs" : [
+						{
+							"placeholder" : "Ex: 1.60",
+							"field" : "height" ,
+							"type" : "text",
+							"validation_rule" : "^\\d+(\\.\\d+)?$"
+						}
+					]
+				},
+				{
+					"text" : "<p>Qual o seu peso?<p>",
+					"inputs" : [
+						{
+							"placeholder" : "Ex: 74 Kg",
+							"field" : "weight" ,
+							"type" : "text",
+							"validation_rule" : "^[^\\s]+$"
 						}
 					]
 				}

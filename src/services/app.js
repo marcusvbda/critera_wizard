@@ -9,13 +9,18 @@
 const initalState = () => ({
 	api_url: "/api.json",
 	step_section: 1,
-	step_question: 3,
+	step_question: 8,
 	sections: [],
 	form: {
 		nick_name: "Vinicius",
 		full_name: "Vinicius Bassalobre",
 		doc_number: "406.145.898-19",
 		birthdate: "08/04/1992",
+		gender: "male",
+		marital_status: "stable union",
+		has_children: false,
+		level_of_education: "complete university",
+		height: 1.74
 	},
 	visible: false
 })
@@ -28,6 +33,14 @@ new Vue({
 	},
 	created() {
 		this.loadSections()
+	},
+	watch: {
+		form: {
+			handler(val) {
+				console.log(val)
+			},
+			deep: true
+		}
 	},
 	computed: {
 		global_index() {
