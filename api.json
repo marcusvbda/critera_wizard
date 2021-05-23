@@ -249,14 +249,28 @@
 					}
 				},
 				{
-					"text" : "<p>Urologia<p>",
-					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
-					"input" : {
-						"field" : "urology" ,
-						"default" : [],
-						"type" : "checkbox",
-						"validation_rule" : "\\S",
-						"options" : ["Uretrite","Disfunçaõ erétil", "Hiperplasia Benigna da prostata","Câncer próstata"]
+					"condition" : "gender",
+					"Masculino" : {
+						"text" : "<p>Urologia<p>",
+						"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+						"input" : {
+							"field" : "urology" ,
+							"default" : [],
+							"type" : "checkbox",
+							"validation_rule" : "\\S",
+							"options" : ["Uretrite","Disfunção erétil", "Hiperplasia Benigna da prostata","Câncer próstata"]
+						}
+					},
+					"Feminino" : {
+						"text" : "<p>Ginecologia<p>",
+						"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+						"input" : {
+							"field" : "urology" ,
+							"default" : [],
+							"type" : "checkbox",
+							"validation_rule" : "\\S",
+							"options" : ["Tensão pré-menstrual","Mioma", "Endometriose","Câncer de mama","Câncer de ovário","Câncer de colo de utéro"]
+						}
 					}
 				},
 				{

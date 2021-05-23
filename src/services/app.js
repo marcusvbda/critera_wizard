@@ -9,7 +9,7 @@
 const initalState = () => ({
 	api_url: "/api.json",
 	step_section: 2,
-	step_question: 7,
+	step_question: 9,
 	sections: [],
 	form: {
 		nick_name: "Vinicius",
@@ -29,7 +29,7 @@ const initalState = () => ({
 		nervous_system: ['Nenhuma das opções'],
 		osteomuscular_rheumatological: ['Nenhuma das opções'],
 		endocrinology: ['Nenhuma das opções'],
-		ophthalmology: [],
+		ophthalmology: ['Nenhuma das opções'],
 		otorhinolaryngology: ['Nenhuma das opções'],
 		urology: ['Nenhuma das opções'],
 		skin: ['Nenhuma das opções'],
@@ -47,14 +47,14 @@ new Vue({
 	created() {
 		this.loadSections()
 	},
-	watch: {
-		form: {
-			handler(val) {
+	// watch: {
+	// 	form: {
+	// 		handler(val) {
 
-			},
-			deep: true
-		}
-	},
+	// 		},
+	// 		deep: true
+	// 	}
+	// },
 	computed: {
 		global_index() {
 			return `${this.step_section}_${this.step_question}`
@@ -67,6 +67,7 @@ new Vue({
 		},
 		input() {
 			let current_question = this.getCurrentQuestion()
+			console.log(current_question)
 			return current_question?.input ?? {}
 		},
 		has_more_question() {
@@ -118,8 +119,12 @@ new Vue({
 		},
 		getCurrentQuestion() {
 			let section = this.getCurrentSection()
-			this.defineDefaultValues(section?.questions[this.step_question])
-			return section?.questions[this.step_question]
+			let question = section?.questions[this.step_question]
+			if (question.condition) {
+				question = question[this.form[question.condition]]
+			}
+			this.defineDefaultValues(question)
+			return question
 		},
 		defineDefaultValues(question) {
 			if (this.form[question.input.field] == undefined) {
