@@ -239,13 +239,17 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 	visibility:visible;
 }
 
+.form-check {
+	margin-top: 20px;
+}
+
 .form-check .critera.radio {
 	width: 100%;
 	background: #F4F4F4;
     border: 2px solid #C2C2C2;
     box-sizing: border-box;
     border-radius: 6px;
-	padding: 32px;
+	padding: 22px;
 	font-family: Votorantim Sans;
 	font-style: normal;
 	font-weight: normal;
@@ -274,4 +278,35 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 
 .form-check .critera.radio.selected .far {
 	color:#71CBE6;
+}
+
+.form-check .critera.ball-input {
+	width: 64px;
+	height: 64px;
+	background: #F4F4F4;
+    border: 2px solid #C2C2C2;
+    box-sizing: border-box;
+    border-radius: 6px;
+	padding: 22px;
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 140.62%;
+	color: #999999;
+	cursor : pointer;
+	border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-check .critera.ball-input.selected {
+	background-color:#71CBE6;
+	border-color:#71CBE6;
+	color: white;
+}
+
+.form-check .critera.ball-input .form-check-input {
+	display: none;
 }

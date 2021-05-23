@@ -59,19 +59,45 @@
 					</div>
 				</div>
 				<div class="answer-section my-3">
-					<div class="row" v-for="(input,i) in inputs" :key="i">
-						<div class="col-md-6 col-sm-12" v-if="['text'].includes(input.type)">
-							<div class="input-group" :class="{'is-success' : testRegex(input.validation_rule,form[input.field])}">
-								<input :type="input.type" v-mask="input.mask" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
+					<div class="row">
+						<div class="col-md-6 col-sm-12" v-if="['text'].includes(current_input.type)">
+							<div class="input-group" :class="{'is-success' : testRegex(current_input.validation_rule,form[current_input.field])}">
+								<input :type="current_input.type" v-mask="current_input.mask" class="form-control" :placeholder="current_input.placeholder" v-model="form[current_input.field]" />
 							</div>
 						</div>
-						<template v-if="['radio'].includes(input.type)">
-							<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
-								<label class="critera radio" :class="{'selected' : option.value == form[input.field]}">
-									{{ option.label }}
-									<input class="form-check-input" type="radio" :name="input.field" :id="`${input.field}_${o}`" :value="option.value" v-model="form[input.field]">
-									<i class="far fa-dot-circle ml-auto" v-if='option.value == form[input.field]'></i>
-									<i class="far fa-circle ml-auto" v-else></i>
+						<template v-if="['radio'].includes(current_input.type)">
+							<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in current_input.options">
+								<label class="critera radio h-100" :class="{'selected' : option.value == form[current_input.field]}">
+									<div class="col-sm-12 col-md-9">
+										{{ option.label }}
+									</div>
+									<div class="col-sm-12 col-md-3 col-sm-12 col-md-4 text-right">
+										<input class="form-check-input" type="radio" :name="current_input.field" :id="`${current_input.field}_${o}`" :value="option.value" v-model="form[current_input.field]">
+										<i class="far fa-dot-circle ml-auto" v-if='option.value == form[current_input.field]'></i>
+										<i class="far fa-circle ml-auto" v-else></i>
+									</div>
+								</label>
+							</div>
+						</template>
+						<template v-if="['checkbox'].includes(current_input.type)">
+							<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in current_input.options">
+								<label class="critera radio h-100" :class="{'selected' : (form[current_input.field]??[]).includes(option.value)}">
+									<div class="col-sm-12 col-md-9">
+										{{ option.label }}
+									</div>
+									<div class="col-sm-12 col-md-3 col-sm-12 col-md-4 text-right">
+										<input class="form-check-input" type="checkbox" :name="current_input.field" :id="`${current_input.field}_${o}`" :value="option.value" v-model="form[current_input.field]">
+										<i class="far fa-dot-circle ml-auto" v-if='(form[current_input.field]??[]).includes(option.value)'></i>
+										<i class="far fa-circle ml-auto" v-else></i>
+									</div>
+								</label>
+							</div>
+						</template>
+						<template v-if="['ball-input'].includes(current_input.type)">
+							<div class="form-check" v-for="(option,o) in input.options">
+								<label class="critera ball-input" :class="{'selected' : option == form[current_input.field]}">
+									{{ option }}
+									<input class="form-check-input" type="radio" :name="current_input.field" :id="`${current_input.field}_${o}`" :value="option" v-model="form[current_input.field]">
 								</label>
 							</div>
 						</template>

@@ -5,14 +5,12 @@
 				{
 					"text" : "<p>Oi, tudo bem?</p>Seja bem vindo à Critera<p>",
 					"subtext" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Sit amet justo donec enim diam. Enim nunc faucibus a pellentesque sit amet porttitor eget. Massa tincidunt dui ut ornare lectus sit amet est.",
-					"inputs" : [
-						{
-							"placeholder" : "Como podemos te chamar ?",
-							"field" : "nick_name" ,
-							"type" : "text",
-							"validation_rule" : "^[^\\s]+$"
-						}
-					]
+					"input" : {
+						"placeholder" : "Como podemos te chamar ?",
+						"field" : "nick_name" ,
+						"type" : "text",
+						"validation_rule" : "^[^\\s]+$"
+					}
 				}
 			]
 		},
@@ -22,163 +20,199 @@
 			"questions" : [
 				{
 					"text" : "<p>{{context.nick_name}}, qual é seu nome completo ?<p>",
-					"inputs" : [
-						{
-							"placeholder" : "Ex: João da Silva",
-							"field" : "full_name" ,
-							"type" : "text",
-							"validation_rule" : "^\\s*\\S+(?:\\s+\\S+)+\\s*$"
-						}
-					]
+					"input" : {
+						"placeholder" : "Ex: João da Silva",
+						"field" : "full_name" ,
+						"type" : "text",
+						"validation_rule" : "^\\s*\\S+(?:\\s+\\S+)+\\s*$"
+					}
 				},
 				{
 					"text" : "<p>Qual o número do seu CPF?<p>",
-					"inputs" : [
-						{
-							"placeholder" : "000.000.000-00",
-							"field" : "doc_number" ,
-							"type" : "text",
-							"validation_rule" : "^.{13,}$",
-							"mask" : "###.###.###-##"
-						}
-					]
+					"input" : {
+						"placeholder" : "000.000.000-00",
+						"field" : "doc_number" ,
+						"type" : "text",
+						"validation_rule" : "^.{13,}$",
+						"mask" : "###.###.###-##"
+					}
 				},
 				{
 					"text" : "<p>Qual sua data de nascimento?<p>",
-					"inputs" : [
-						{
-							"placeholder" : "dia/mês/ano",
-							"field" : "birthdate" ,
-							"type" : "text",
-							"validation_rule" : "^\\d{2}\\\/\\d{2}\\\/\\d{4}$",
-							"mask" : "##/##/####"
-						}
-					]
+					"input" : {
+						"placeholder" : "dia/mês/ano",
+						"field" : "birthdate" ,
+						"type" : "text",
+						"validation_rule" : "^\\d{2}\\\/\\d{2}\\\/\\d{4}$",
+						"mask" : "##/##/####"
+					}
 				},
 				{
 					"text" : "<p>Qual seu gênero?<p>",
-					"inputs" : [
-						{
-							"field" : "gender" ,
-							"type" : "radio",
-							"validation_rule" : "^[^\\s]+$",
-							"options" : [
-								{
-									"value" : "male", 
-									"label" : "Masculino"
-								},
-								{
-									"value" : "female", 
-									"label" : "Feminino"
-								}
-							]
-						}
-					]
+					"input" : {
+						"field" : "gender" ,
+						"type" : "radio",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "male", 
+								"label" : "Masculino"
+							},
+							{
+								"value" : "female", 
+								"label" : "Feminino"
+							}
+						]
+					}
 				},
 				{
 					"text" : "<p>Qual seu estado civil?<p>",
-					"inputs" : [
-						{
-							"field" : "marital_status" ,
-							"type" : "radio",
-							"validation_rule" : "^[^\\s]+$",
-							"options" : [
-								{
-									"value" : "married", 
-									"label" : "Casado"
-								},
-								{
-									"value" : "divorced", 
-									"label" : "Divorciado"
-								},
-								{
-									"value" : "stable union", 
-									"label" : "Namorando"
-								},
-								{
-									"value" : "single", 
-									"label" : "Solteiro"
-								}
-							]
-						}
-					]
+					"input" : {
+						"field" : "marital_status" ,
+						"type" : "radio",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "married", 
+								"label" : "Casado"
+							},
+							{
+								"value" : "divorced", 
+								"label" : "Divorciado"
+							},
+							{
+								"value" : "stable", 
+								"label" : "Namorando"
+							},
+							{
+								"value" : "single", 
+								"label" : "Solteiro"
+							}
+						]
+					}
 				},
 				{
 					"text" : "<p>Você tem filhos?<p>",
-					"inputs" : [
-						{
-							"field" : "has_children" ,
-							"type" : "radio",
-							"validation_rule" : "^[^\\s]+$",
-							"options" : [
-								{
-									"value" : true, 
-									"label" : "Sim"
-								},
-								{
-									"value" : false, 
-									"label" : "Não"
-								}
-							]
-						}
-					]
+					"input" : {
+						"field" : "has_children" ,
+						"type" : "radio",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : true, 
+								"label" : "Sim"
+							},
+							{
+								"value" : false, 
+								"label" : "Não"
+							}
+						]
+					}
 				},
 				{
 					"text" : "<p>Nível de escolaridade?<p>",
-					"inputs" : [
-						{
-							"field" : "level_of_education" ,
-							"type" : "radio",
-							"validation_rule" : "^[^\\s]+$",
-							"options" : [
-								{
-									"value" : "incomplete medium", 
-									"label" : "Médio incompleto"
-								},
-								{
-									"value" : "complete medium", 
-									"label" : "Médio completo"
-								},
-								{
-									"value" : "university incompleto", 
-									"label" : "Superior incompleto"
-								},
-								{
-									"value" : "complete university", 
-									"label" : "Superior completo"
-								}
-							]
-						}
-					]
+					"input" : {
+						"field" : "level_of_education" ,
+						"type" : "radio",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "incomplete_medium", 
+								"label" : "Médio incompleto"
+							},
+							{
+								"value" : "complete_medium", 
+								"label" : "Médio completo"
+							},
+							{
+								"value" : "university_incompleto", 
+								"label" : "Superior incompleto"
+							},
+							{
+								"value" : "complete_university", 
+								"label" : "Superior completo"
+							}
+						]
+					}
 				},
 				{
 					"text" : "<p>Qual sua altura?<p>",
-					"inputs" : [
-						{
-							"placeholder" : "Ex: 1.60",
-							"field" : "height" ,
-							"type" : "text",
-							"validation_rule" : "^\\d+(\\.\\d+)?$"
-						}
-					]
+					"input" : {
+						"placeholder" : "Ex: 1.60",
+						"field" : "height" ,
+						"type" : "text",
+						"validation_rule" : "^\\d+(\\.\\d+)?$"
+					}
 				},
 				{
 					"text" : "<p>Qual o seu peso?<p>",
-					"inputs" : [
-						{
-							"placeholder" : "Ex: 74 Kg",
-							"field" : "weight" ,
-							"type" : "text",
-							"validation_rule" : "^[^\\s]+$"
-						}
-					]
+					"input" : {
+						"placeholder" : "Ex: 74 Kg",
+						"field" : "weight" ,
+						"type" : "text",
+						"validation_rule" : "^[^\\s]+$"
+					}
 				}
 			]
 		},
 		{
 			"title" : "02. Saúde",
 			"progress_color": "#6D5DC7",
-			"questions" : []
+			"questions" : [
+				{
+					"text" : "<p>De um modo geral, como você avaliaria o seu estado de saúde hoje?<p>",
+					"input" : {
+						"field" : "level_of_mental_health" ,
+						"type" : "ball-input",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [1,2,3,4,5,6,7,8,9,10]
+					}
+				},
+				{
+					"text" : "<p>Cardiovascular<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "cardiovascular" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "high_pressure", 
+								"label" : "Pressão alta"
+							},
+							{
+								"value" : "high_cholesterol", 
+								"label" : "Colesterol alto"
+							},
+							{
+								"value" : "cardiac_arrhythmia", 
+								"label" : "Arritimia cardíaca"
+							},
+							{
+								"value" : "cardiac_insufficiency", 
+								"label" : "Insuficiência cardíaca"
+							},
+							{
+								"value" : "myocardial_infarction", 
+								"label" : "Infarto do Miocardio"
+							},
+							{
+								"value" : "heart_valve_disease", 
+								"label" : "Doença na valvula cardíaca"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				}
+			]
 		},
 		{
 			"title" : "03. Hábitos",

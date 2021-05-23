@@ -8,8 +8,8 @@
 // })
 const initalState = () => ({
 	api_url: "/api.json",
-	step_section: 1,
-	step_question: 8,
+	step_section: 2,
+	step_question: 1,
 	sections: [],
 	form: {
 		nick_name: "Vinicius",
@@ -17,10 +17,12 @@ const initalState = () => ({
 		doc_number: "406.145.898-19",
 		birthdate: "08/04/1992",
 		gender: "male",
-		marital_status: "stable union",
+		marital_status: "stable",
 		has_children: false,
-		level_of_education: "complete university",
-		height: 1.74
+		level_of_education: "complete_university",
+		height: 1.74,
+		weight: 84,
+		level_of_mental_health: 7
 	},
 	visible: false
 })
@@ -50,10 +52,11 @@ new Vue({
 			return this.sections[this.step_section]
 		},
 		current_question() {
+			this.defineDefaultValues(this.current_section?.questions[this.step_question])
 			return this.current_section?.questions[this.step_question]
 		},
-		inputs() {
-			return this.current_question?.inputs ?? []
+		current_input() {
+			return this.current_question.input ?? {}
 		},
 		has_more_question() {
 			return this.current_section?.questions.length > (this.step_question + 1)
@@ -77,12 +80,15 @@ new Vue({
 			return steps
 		},
 		can_next() {
-			let qty_success = this.current_question.inputs.map(x => this.form[x.field] && this.testRegex(x.validation_rule, this.form[x.field])).filter(x => x).length
-			let qty_questions = this.current_question.inputs.length
-			return qty_success == qty_questions
+			let input_success = this.form[this.current_input.field] != undefined && this.testRegex(this.current_input.validation_rule, this.form[this.current_input.field])
+			return input_success
 		}
 	},
 	methods: {
+		defineDefaultValues(question) {
+			console.log(question)
+			this.$set(this.form, question.input.field, question.input.default ?? null)
+		},
 		testRegex(rule, value) {
 			let regex = new RegExp(rule ?? '$')
 			return regex.test(value ?? "")
@@ -115,9 +121,7 @@ new Vue({
 			this.finishWizard()
 		},
 		cleanForm() {
-			this.current_question.inputs.forEach(x => {
-				this.$set(this.form, x.field, undefined)
-			})
+			this.$set(this.form, this.current_question.input, undefined)
 		},
 		previousQuestion() {
 			this.cleanForm()
