@@ -238,3 +238,40 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 .progress-section .progress-row .progress .progress-bar.current .value {
 	visibility:visible;
 }
+
+.form-check .critera.radio {
+	width: 100%;
+	background: #F4F4F4;
+    border: 2px solid #C2C2C2;
+    box-sizing: border-box;
+    border-radius: 6px;
+	padding: 32px;
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 140.62%;
+	display: flex;
+	align-items: center;
+	color: #999999;
+	cursor : pointer;
+}
+
+.form-check .critera.radio.selected {
+	background: rgba(113, 203, 230, 0.1);
+	border-color: #71CBE6;
+	color: #212721;
+}
+
+.form-check .critera.radio .form-check-input {
+	display: none;
+}
+
+.form-check .critera.radio .far {
+	font-size: 24px;
+    color: #999999;
+}
+
+.form-check .critera.radio.selected .far {
+	color:#71CBE6;
+}

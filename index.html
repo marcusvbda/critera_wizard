@@ -61,10 +61,20 @@
 				<div class="answer-section my-3">
 					<div class="row" v-for="(input,i) in inputs" :key="i">
 						<div class="col-md-6 col-sm-12" v-if="['text'].includes(input.type)">
-							<div class="input-group" :class="{'is-success' : testRegex(input.regex,form[input.field])}">
+							<div class="input-group" :class="{'is-success' : testRegex(input.validation_rule,form[input.field])}">
 								<input :type="input.type" v-mask="input.mask" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
 							</div>
 						</div>
+						<template v-if="['radio'].includes(input.type)">
+							<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
+								<label class="critera radio" :class="{'selected' : option.value == form[input.field]}">
+									{{ option.label }}
+									<input class="form-check-input" type="radio" :name="input.field" :id="`${input.field}_${o}`" :value="option.value" v-model="form[input.field]">
+									<i class="far fa-dot-circle ml-auto" v-if='option.value == form[input.field]'></i>
+									<i class="far fa-circle ml-auto" v-else></i>
+								</label>
+							</div>
+						</template>
 					</div>
 				</div>
 				<div class="buttons-section mt-auto">

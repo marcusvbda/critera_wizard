@@ -10,7 +10,7 @@
 							"placeholder" : "Como podemos te chamar ?",
 							"field" : "nick_name" ,
 							"type" : "text",
-							"regex" : "^[^\\s]+$"
+							"validation_rule" : "^[^\\s]+$"
 						}
 					]
 				}
@@ -27,7 +27,7 @@
 							"placeholder" : "Ex: João da Silva",
 							"field" : "full_name" ,
 							"type" : "text",
-							"regex" : "^\\s*\\S+(?:\\s+\\S+)+\\s*$"
+							"validation_rule" : "^\\s*\\S+(?:\\s+\\S+)+\\s*$"
 						}
 					]
 				},
@@ -38,7 +38,7 @@
 							"placeholder" : "000.000.000-00",
 							"field" : "doc_number" ,
 							"type" : "text",
-							"regex" : "^.{13,}$",
+							"validation_rule" : "^.{13,}$",
 							"mask" : "###.###.###-##"
 						}
 					]
@@ -50,7 +50,7 @@
 							"placeholder" : "dia/mês/ano",
 							"field" : "birthdate" ,
 							"type" : "text",
-							"regex" : "^\\d{2}\\\/\\d{2}\\\/\\d{4}$",
+							"validation_rule" : "^\\d{2}\\\/\\d{2}\\\/\\d{4}$",
 							"mask" : "##/##/####"
 						}
 					]
@@ -59,10 +59,19 @@
 					"text" : "<p>Qual seu gênero?<p>",
 					"inputs" : [
 						{
-							"placeholder" : "",
 							"field" : "gender" ,
-							"type" : "text",
-							"regex" : ""
+							"type" : "radio",
+							"validation_rule" : "^[^\\s]+$",
+							"options" : [
+								{
+									"value" : "m", 
+									"label" : "Masculino"
+								},
+								{
+									"value" : "f", 
+									"label" : "Feminino"
+								}
+							]
 						}
 					]
 				}

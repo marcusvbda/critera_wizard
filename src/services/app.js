@@ -1,24 +1,24 @@
-const initalState = () => ({
-	api_url: "/api.json",
-	step_section: 0,
-	step_question: 0,
-	sections: [],
-	form: {},
-	visible: false
-})
 // const initalState = () => ({
 // 	api_url: "/api.json",
-// 	step_section: 1,
-// 	step_question: 3,
+// 	step_section: 0,
+// 	step_question: 0,
 // 	sections: [],
-// 	form: {
-// 		nick_name: "Vinicius",
-// 		full_name: "Vinicius Bassalobre",
-// 		doc_number: "406.145.898-19",
-// 		birthdate: "08/04/1992",
-// 	},
+// 	form: {},
 // 	visible: false
 // })
+const initalState = () => ({
+	api_url: "/api.json",
+	step_section: 1,
+	step_question: 3,
+	sections: [],
+	form: {
+		nick_name: "Vinicius",
+		full_name: "Vinicius Bassalobre",
+		doc_number: "406.145.898-19",
+		birthdate: "08/04/1992",
+	},
+	visible: false
+})
 
 Vue.directive('mask', VueMask.VueMaskDirective)
 new Vue({
@@ -64,7 +64,7 @@ new Vue({
 			return steps
 		},
 		can_next() {
-			let qty_success = this.current_question.inputs.map(x => this.form[x.field] && this.testRegex(x.regex, this.form[x.field])).filter(x => x).length
+			let qty_success = this.current_question.inputs.map(x => this.form[x.field] && this.testRegex(x.validation_rule, this.form[x.field])).filter(x => x).length
 			let qty_questions = this.current_question.inputs.length
 			return qty_success == qty_questions
 		}
@@ -101,7 +101,13 @@ new Vue({
 			}
 			this.finishWizard()
 		},
+		cleanForm() {
+			this.current_question.inputs.forEach(x => {
+				this.$set(this.form, x.field, undefined)
+			})
+		},
 		previousQuestion() {
+			this.cleanForm()
 			if (this.step_question > 0) {
 				return this.step_question--
 			}
