@@ -37,7 +37,7 @@
 								<div class="progress" :style="{width : `${100 / progress_sections.filter(x=>x.title && x.progress_color).length}%`}">
 									<div class="progress-bar" :class="{'current' : step_section == step.index}" role="progressbar" :style="{width : getProgressSectionPercentage(step),backgroundColor : step.progress_color}" aria-valuemin="0" aria-valuemax="100">
 										<div class="value">
-											{{ step_section }}/{{ step.total_questions }}
+											{{ step_question+1 }}/{{ step.total_questions }}
 										</div>
 									</div>
 								</div>
@@ -61,7 +61,9 @@
 				<div class="answer-section my-3">
 					<div class="row" v-for="(input,i) in inputs" :key="i">
 						<div class="col-md-6 col-sm-12" v-if=" input.type =='text'">
-							<input :type="input.type" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
+							<div class="input-group" :class="{'is-success' : form[input.field]}">
+								<input :type="input.type" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
+							</div>
 						</div>
 					</div>
 				</div>
@@ -69,7 +71,7 @@
 					<div class="row">
 						<div class="col-12 d-flex justify-content-end">
 							<button class="btn criteria outline mr-3" @click="previousQuestion" v-if="can_go_back">Voltar</button>
-							<button class="btn criteria" @click="nextQuestion">Próxima</button>
+							<button class="btn criteria" @click="nextQuestion" :disabled="!can_next">Próxima</button>
 						</div>
 					</div>
 				</div>

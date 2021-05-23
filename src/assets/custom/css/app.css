@@ -34,14 +34,38 @@ html, body {
 input[type="text"], select.form-control {
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid #999999;
+	border-bottom: 2px solid #999999;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border-radius: 0;
 	color : #999999;
 	font-family: Votorantim Sans;
 	font-style: normal;
-  }
+	box-shadow :unset!important;
+	padding-right: 40px;
+}
+
+.input-group.is-success input[type="text"],.input-group.is-success select.form-control {
+	border-color: #AED145;
+}
+
+.input-group.is-success {
+	position: relative;
+}
+
+.input-group.is-success::before {
+	display: block;
+	content : " ";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+	background: url("../../images/checked.png");
+	height: 24px;
+	width: 24px;
+	background-position: cover;
+	background-repeat: no-repeat;
+}
+  
   
 input[type="text"]:focus, select.form-control:focus {
 	background: transparent;
@@ -49,6 +73,7 @@ input[type="text"]:focus, select.form-control:focus {
 	box-shadow: none;
 	font-family: Votorantim Sans;
 	font-style: normal;
+	border-color: #71CBE6;
 }
 
 input[type="text"]::placeholder, select.form-control::placeholder {

@@ -47,6 +47,12 @@ new Vue({
 				total_questions: x.questions.length
 			}))
 			return steps
+		},
+		can_next() {
+			let qty_success = this.current_question.inputs.map(x => this.form[x.field]).filter(x => x).length
+			let qty_questions = this.current_question.inputs.length
+			console.log(qty_success, qty_questions)
+			return qty_success == qty_questions
 		}
 	},
 	methods: {
@@ -54,7 +60,7 @@ new Vue({
 			if (step.index > this.step_section) return "0%"
 			if (step.index < this.step_section) return "100%"
 			let total = this.sections[step.index].questions.length
-			let current = this.step_question
+			let current = this.step_question + 1
 			let percentage = Math.round(current * 100 / total)
 			return `${percentage}%`
 		},
