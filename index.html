@@ -13,23 +13,53 @@
 </head>
 
 <body>
-	<div>
-		<header>
-			<nav class="navbar critera container-fluid">
-				<a class="navbar-brand" href="#">
-					<img src="./src/assets/images/Logo.png" />
-				</a>
+	<header>
+		<nav class="navbar critera container-fluid fixed-top">
+			<a class="navbar-brand" href="#">
+				<img src="./src/assets/images/Logo.png" />
+			</a>
+		</nav>
+	</header>
+	<main id="app" :class="{'with-progress': current_question?.show_progress}">
+		<div v-if="visible" class="h-100">
+			<nav class="navbar progress-section container-fluid bg-light navbar-dark fixed-top" v-if="current_question.show_progress">
+				<div class="container-fluid critera">
+					asda
+				</div>
 			</nav>
-		</header>
-		<main id="app" class="container-fluid critera">
-			conteudo
-		</main>
-	</div>
-	<footer>
-		<!-- footer -->
-	</footer>
-
-	<script src="./src/assets/vue/js/vue2.min.js"></script>
+			<div class="container-fluid critera h-100 d-flex flex-column">
+				<div class="question-section mt-5">
+					<h1 class="text" v-if="current_question.text">
+						<dynamic-component :template-html="current_question.text" :key="`${global_index}_text`" :context="form" />
+					</h1>
+					<div class="subtext">
+						<div v-if="current_question.subtext">
+							<dynamic-component :template-html="current_question.subtext" :key="`${global_index}_subtext`" :context="form" />
+						</div>
+						<div class="separator"></div>
+					</div>
+				</div>
+				<div class="answer-section my-3">
+					<div class="row" v-for="(input,i) in inputs" :key="i">
+						<div class="col-md-6 col-sm-12" v-if=" input.type =='text'">
+							<input :type="input.type" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
+						</div>
+					</div>
+				</div>
+				<div class="buttons-section mt-auto">
+					<div class="row">
+						<div class="col-12 d-flex justify-content-end">
+							<button class="btn criteria outline mr-3" @click="previousQuestion" v-if="can_go_back">Voltar</button>
+							<button class="btn criteria" @click="nextQuestion">Próxima</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src=" ./src/assets/vue/js/vue2.min.js">
+	</script>
+	<script src="./src/components/dynamic_component.js"></script>
 	<script src="./src/services/app.js"></script>
 
 </html>

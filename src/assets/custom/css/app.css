@@ -1,6 +1,62 @@
+@font-face {
+    font-family: "Votorantim Sans";
+    src: url(../../votorantins/fonts/VotorantimSans-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Votorantim Sans";
+    src: url(../../votorantins/fonts/VotorantimSans-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Votorantim Sans";
+    src: url(../../votorantins/fonts/VotorantimSans-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Votorantim Sans";
+    src: url(../../votorantins/fonts/VotorantimSans-Light.ttf);
+    font-weight: lighter;
+}
+
 html {
 	scroll-behavior: smooth;
 }
+
+html, body {
+	height: 100%;
+	background-color: #F4F4F4;
+}
+
+input[type="text"], select.form-control {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #999999;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-radius: 0;
+	color : #999999;
+	font-family: Votorantim Sans;
+	font-style: normal;
+  }
+  
+input[type="text"]:focus, select.form-control:focus {
+	background: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	font-family: Votorantim Sans;
+	font-style: normal;
+}
+
+input[type="text"]::placeholder, select.form-control::placeholder {
+	color :#999999;
+	font-family: Votorantim Sans;
+	font-style: normal;
+}
+
 
 .critera.navbar {
 	background-color: #2A2F6E;
@@ -9,4 +65,78 @@ html {
 
 .critera.container-fluid {
 	padding: 0 80.25px;
+}
+
+#app {
+	height: 100%;
+	padding-top: 100px;
+	display: flex;
+	flex-direction: column;
+}
+
+#app.with-progress {
+	padding-top: 196px;
+}
+
+.question-section p {
+	margin-bottom: 0;
+}
+
+.question-section .text {
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 42px;
+	line-height: 49px;
+	color: #212721;
+	margin-bottom: 12px;
+}
+
+.question-section .subtext {
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 140.62%;
+	color: #212721;
+}
+
+.question-section .subtext .separator {
+	margin-top: 10px;
+	width: 84px;
+	height: 6px;
+	left: 84px;
+	top: 422px;
+	background: #71CBE6;
+	border-radius: 6px;
+}
+
+.buttons-section {
+	padding-bottom: 64px;
+}
+
+.btn.criteria {
+	background-color: #AED145;
+	border-color: #AED145;
+	border-radius: 6px;
+	color : white;
+	padding: 12px 15px;
+}
+
+.btn.criteria.outline {
+	background-color: transparent;
+	border-radius: 6px;
+	color : #C2C2C2;
+	padding: 12px 15px;
+	border-color: #C2C2C2;
+}
+
+.btn.criteria:disabled {
+	background: #C2C2C2;
+	border-color: #C2C2C2;
+}
+
+.progress-section  {
+	height: 96px;
+	margin-top: 100px;
 }

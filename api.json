@@ -1,0 +1,39 @@
+{
+	"sections" : [
+		{
+			"title" : "00. Inicial",
+			"questions" : [
+				{
+					"show_progress" : false,
+					"text" : "<p>Oi, tudo bem?</p>Seja bem vindo à Critera<p>",
+					"subtext" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Sit amet justo donec enim diam. Enim nunc faucibus a pellentesque sit amet porttitor eget. Massa tincidunt dui ut ornare lectus sit amet est.",
+					"inputs" : [
+						{
+							"placeholder" : "Como podemos te chamar ?",
+							"field" : "nickname" ,
+							"type" : "text",
+							"required" : true
+						}
+					]
+				}
+			]
+		},
+		{
+			"title" : "01. Informações pessoais",
+			"questions" : [
+				{
+					"show_progress" : true,
+					"text" : "<p>{{context.nickname}}, qual é seu nome completo ?<p>",
+					"inputs" : [
+						{
+							"placeholder" : "Ex: João da Silva",
+							"field" : "full_name" ,
+							"type" : "text",
+							"required" : true
+						}
+					]
+				}
+			]
+		}
+	]
+}
