@@ -9,30 +9,31 @@
 const initalState = () => ({
 	api_url: "/api.json",
 	step_section: 2,
-	step_question: 12,
+	step_question: 7,
 	sections: [],
 	form: {
 		nick_name: "Vinicius",
 		full_name: "Vinicius Bassalobre",
 		doc_number: "406.145.898-19",
 		birthdate: "08/04/1992",
-		gender: "male",
-		marital_status: "stable",
-		has_children: false,
-		level_of_education: "complete_university",
+		gender: "Masculino",
+		marital_status: "Namorando",
+		has_children: "Sim",
+		level_of_education: "Superior completo",
 		height: 1.74,
 		weight: 84,
 		level_of_mental_health: 7,
-		cardiovascular: ['none'],
-		breathing: ["sinusitis"],
-		gastrointestinal: ['gastritis_ulcer'],
-		nervous_system: ['headache'],
-		osteomuscular_rheumatological: ['spine_pains'],
-		ophthalmology: ['difficulty_listening'],
-		otorhinolaryngology: ['difficulty_listening'],
-		urology: ['none'],
-		skin: ['none'],
-		allergies: ['none']
+		cardiovascular: ['Nenhum das opções'],
+		breathing: ["Nenhum das opções"],
+		gastrointestinal: ['Nenhum das opções'],
+		nervous_system: ['Nenhum das opções'],
+		osteomuscular_rheumatological: ['Nenhum das opções'],
+		endocrinology: ['Nenhum das opções'],
+		ophthalmology: ['Nenhum das opções'],
+		otorhinolaryngology: ['Nenhum das opções'],
+		urology: ['Nenhum das opções'],
+		skin: ['Nenhum das opções'],
+		allergies: ['Nenhum das opções']
 	},
 	visible: false
 })
@@ -46,14 +47,14 @@ new Vue({
 	created() {
 		this.loadSections()
 	},
-	// watch: {
-	// 	form: {
-	// 		handler(val) {
-	// 			console.log(val)
-	// 		},
-	// 		deep: true
-	// 	}
-	// },
+	watch: {
+		form: {
+			handler(val) {
+				console.log(val)
+			},
+			deep: true
+		}
+	},
 	computed: {
 		global_index() {
 			return `${this.step_section}_${this.step_question}`
@@ -78,7 +79,7 @@ new Vue({
 			if (!Array.isArray(this.form[this.input.field])) {
 				return false
 			}
-			return this.form[this.input.field].includes("others")
+			return this.form[this.input.field].includes("Outras")
 		},
 		can_go_back() {
 			return this.global_index != '0_0'
