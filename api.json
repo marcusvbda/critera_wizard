@@ -130,9 +130,7 @@
 							"Arritimia cardíaca",
 							"Insuficiência cardíaca",
 							"Infarto do Miocardio",
-							"Doença na valvula cardíaca",
-							"Outras",
-							"Nenhum das opções"
+							"Doença na valvula cardíaca"
 						]
 					}
 				},
@@ -144,7 +142,7 @@
 						"default" : [],
 						"type" : "checkbox",
 						"validation_rule" : "\\S",
-						"options" : ["Diabetes", "Hipotireoidismo","Hipertireoidismo","Câncer de treóide","Obesidade","Outras","Nenhum das opções"]
+						"options" : ["Diabetes", "Hipotireoidismo","Hipertireoidismo","Câncer de treóide","Obesidade"]
 					}
 				},
 				{
@@ -161,9 +159,7 @@
 							"Sinusite",
 							"Doença Pulmonar Obstrutiva Crônica (DPOC)/Enfisema",
 							"Câncer de Pulmão",
-							"Tuberculose",
-							"Outras",
-							"Nenhum das opções"
+							"Tuberculose"
 						]
 					}
 				},
@@ -183,9 +179,7 @@
 							"Doença de Crohn",
 							"Sindrome do colon irritável",
 							"Câncer estômago",
-							"Cânecer intestino",
-							"Outras",
-							"Nenhum das opções"
+							"Cânecer intestino"
 						]
 					}
 				},
@@ -205,9 +199,7 @@
 							 "Doença auto-imune sistema nervoso",
 							 "Esclerose múltipla",
 							 "Câncer sistema nervoso",
-							 "Cânecer intestino",
-							 "Outras",
-							 "Nenhum das opções"
+							 "Cânecer intestino"
 						]
 					}
 				},
@@ -226,9 +218,7 @@
 							"Traumas",
 							"Artrite reumatóide",
 							"Lupus eritematoso sistemico",
-							"Outras doenças auto-imunes",
-							"Outras",
-							"Nenhum das opções"
+							"Outras doenças auto-imunes"
 						]
 					}
 				},
@@ -243,9 +233,7 @@
 						"options" : [
 							"Doença Refrativa (miopia, astimagtismo, presbiopia)",
 							"Glaucoma",
-							"Catarata",
-							"Outras",
-							"Nenhum das opções"
+							"Catarata"
 						]
 					}
 				},
@@ -257,7 +245,7 @@
 						"default" : [],
 						"type" : "checkbox",
 						"validation_rule" : "\\S",
-						"options" : [ "Dificuldade de escutar","Zumbido","Tontura/Vertigem","Tumores","Outras","Nenhum das opções"]
+						"options" : [ "Dificuldade de escutar","Zumbido","Tontura/Vertigem","Tumores"]
 					}
 				},
 				{
@@ -268,7 +256,7 @@
 						"default" : [],
 						"type" : "checkbox",
 						"validation_rule" : "\\S",
-						"options" : ["Uretrite","Disfunçaõ erétil", "Hiperplasia Benigna da prostata","Câncer próstata", "Outras","Nenhum das opções"]
+						"options" : ["Uretrite","Disfunçaõ erétil", "Hiperplasia Benigna da prostata","Câncer próstata"]
 					}
 				},
 				{
@@ -279,7 +267,7 @@
 						"default" : [],
 						"type" : "checkbox",
 						"validation_rule" : "\\S",
-						"options" : ["Dermatite atópica","Outras dermatites","Psoriase","Câncer de pele (basocelular ou espinocelular)","Melanoma","Outras","Nenhum das opções"]
+						"options" : ["Dermatite atópica","Outras dermatites","Psoriase","Câncer de pele (basocelular ou espinocelular)","Melanoma"]
 					}
 				},
 				{
@@ -293,9 +281,7 @@
 						"options" : [
 							"Intolerância a lactose",
 							"Intolerância a gluten",
-							"Alergias alimentares",
-							"Outras",
-							"Nenhum das opções"
+							"Alergias alimentares"
 						]
 					}
 				},
@@ -310,9 +296,7 @@
 						"options" : [
 							"Intolerância a lactose",
 							"Intolerância a gluten",
-							"Alergias alimentares",
-							"Outras",
-							"Nenhum das opções"
+							"Alergias alimentares"
 						]
 					}
 				}

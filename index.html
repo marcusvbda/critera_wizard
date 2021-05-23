@@ -94,8 +94,32 @@
 										{{ option }}
 									</div>
 									<div class="col-sm-12 col-md-2 col-sm-12 text-right">
-										<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]">
+										<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]" @change="changeOption(false)">
 										<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes(option)'></i>
+										<i class="far fa-circle ml-auto" v-else></i>
+									</div>
+								</label>
+							</div>
+							<div class="form-check col-sm-12 col-md-3">
+								<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Outras')}">
+									<div class="col-sm-12 col-md-10">
+										Outras
+									</div>
+									<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+										<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_others`" value="Outras" v-model="form[input.field]" @change="changeOption(false)">
+										<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Outras")'></i>
+										<i class="far fa-circle ml-auto" v-else></i>
+									</div>
+								</label>
+							</div>
+							<div class="form-check col-sm-12 col-md-3">
+								<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Nenhuma das opções')}">
+									<div class="col-sm-12 col-md-10">
+										Nenhuma das opções
+									</div>
+									<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+										<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_none`" value="Nenhuma das opções" v-model="form[input.field]" @change="changeOption(true)">
+										<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Nenhuma das opções")'></i>
 										<i class="far fa-circle ml-auto" v-else></i>
 									</div>
 								</label>

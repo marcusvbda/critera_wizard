@@ -23,17 +23,17 @@ const initalState = () => ({
 		height: 1.74,
 		weight: 84,
 		level_of_mental_health: 7,
-		cardiovascular: ['Nenhum das opções'],
-		breathing: ["Nenhum das opções"],
-		gastrointestinal: ['Nenhum das opções'],
-		nervous_system: ['Nenhum das opções'],
-		osteomuscular_rheumatological: ['Nenhum das opções'],
-		endocrinology: ['Nenhum das opções'],
-		ophthalmology: ['Nenhum das opções'],
-		otorhinolaryngology: ['Nenhum das opções'],
-		urology: ['Nenhum das opções'],
-		skin: ['Nenhum das opções'],
-		allergies: ['Nenhum das opções']
+		cardiovascular: ['Nenhuma das opções'],
+		breathing: ["Nenhuma das opções"],
+		gastrointestinal: ['Nenhuma das opções'],
+		nervous_system: ['Nenhuma das opções'],
+		osteomuscular_rheumatological: ['Nenhuma das opções'],
+		endocrinology: ['Nenhuma das opções'],
+		ophthalmology: [],
+		otorhinolaryngology: ['Nenhuma das opções'],
+		urology: ['Nenhuma das opções'],
+		skin: ['Nenhuma das opções'],
+		allergies: ['Nenhuma das opções']
 	},
 	visible: false
 })
@@ -50,7 +50,7 @@ new Vue({
 	watch: {
 		form: {
 			handler(val) {
-				console.log(val)
+
 			},
 			deep: true
 		}
@@ -106,6 +106,13 @@ new Vue({
 		}
 	},
 	methods: {
+		changeOption(none = false) {
+			if (none) {
+				this.form[this.input.field] = this.form[this.input.field].filter(x => x == "Nenhuma das opções")
+			} else {
+				this.form[this.input.field] = this.form[this.input.field].filter(x => x != "Nenhuma das opções")
+			}
+		},
 		getCurrentSection() {
 			return this.sections[this.step_section]
 		},
