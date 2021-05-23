@@ -1,3 +1,12 @@
 html {
 	scroll-behavior: smooth;
 }
+
+.critera.navbar {
+	background-color: #2A2F6E;
+	height: 100px;
+}
+
+.critera.container-fluid {
+	padding: 0 80.25px;
+}
