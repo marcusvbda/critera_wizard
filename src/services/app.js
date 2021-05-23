@@ -1,11 +1,9 @@
 const initalState = () => ({
 	api_url: "/api.json",
-	step_section: 1,
+	step_section: 0,
 	step_question: 0,
 	sections: [],
-	form: {
-		nickname: "Vinicius"
-	},
+	form: {},
 	visible: false
 })
 new Vue({
@@ -37,9 +35,29 @@ new Vue({
 		},
 		can_go_back() {
 			return this.global_index != '0_0'
+		},
+		show_progress() {
+			return this.current_section?.title ? true : false
+		},
+		progress_sections() {
+			let steps = this.sections.map((x, i) => ({
+				title: x.title,
+				progress_color: x.progress_color,
+				index: i,
+				total_questions: x.questions.length
+			}))
+			return steps
 		}
 	},
 	methods: {
+		getProgressSectionPercentage(step) {
+			if (step.index > this.step_section) return "0%"
+			if (step.index < this.step_section) return "100%"
+			let total = this.sections[step.index].questions.length
+			let current = this.step_question
+			let percentage = Math.round(current * 100 / total)
+			return `${percentage}%`
+		},
 		loadSections() {
 			fetch(this.api_url).then(resp => {
 				resp.json().then(data => {

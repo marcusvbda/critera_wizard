@@ -140,3 +140,76 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 	height: 96px;
 	margin-top: 100px;
 }
+
+.progress-section .step {
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 140.62%;
+	color: #AED145;
+	margin-right: 24px;
+	padding-left: 24px;
+	border-left: 1px solid #C4C4C4;
+}
+
+.progress-section .step:first-child {
+	border-left: unset;
+	padding-left: unset;
+}
+
+
+.progress-section .step.not_current {
+	color: #999999!important;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.progress-section .progress-row {
+	position: absolute;
+    bottom: -3px;
+}
+
+.progress-section .progress-row .progress {
+	border-radius: unset;
+	height: 6px;
+	overflow: unset;
+}
+
+.progress-section .progress-row .progress:nth-child(odd) {
+	background-color: #C2C2C2;
+}
+
+.progress-section .progress-row .progress .progress-bar {
+	overflow: unset;
+	position: relative;
+}
+
+.progress-section .progress-row .progress .progress-bar.current::after {
+	display: block;
+    content: " ";
+    background-color: inherit;
+    height: 18px;
+    width: 18px;
+    border-radius: 100%;
+    right: 0;
+    position: absolute;
+}
+
+.progress-section .progress-row .progress .progress-bar .value {
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 140.62%;
+	text-align: center;
+	color: #212721;
+	position: absolute;
+    bottom: -23px;
+    right: 0;
+	visibility:hidden;
+}
+
+.progress-section .progress-row .progress .progress-bar.current .value {
+	visibility:visible;
+}

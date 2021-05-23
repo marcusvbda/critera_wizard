@@ -20,11 +20,30 @@
 			</a>
 		</nav>
 	</header>
-	<main id="app" :class="{'with-progress': current_question?.show_progress}">
+	<main id="app" :class="{'with-progress': show_progress}">
 		<div v-if="visible" class="h-100">
-			<nav class="navbar progress-section container-fluid bg-light navbar-dark fixed-top" v-if="current_question.show_progress">
-				<div class="container-fluid critera">
-					asda
+			<nav class="navbar progress-section bg-light navbar-dark fixed-top px-0" v-if="show_progress">
+				<div class="container-fluid critera d-flex flex-column">
+					<div class="w-100">
+						<template v-for="(step,i) in progress_sections">
+							<template v-if="step.title && step.progress_color">
+								<span class="step" :class="{'not_current': step.index != step_section}" :style="{color : step.progress_color}">{{ step.title }}</span>
+							</template>
+						</template>
+					</div>
+					<div class="w-100 d-flex flex-row progress-row">
+						<template v-for="(step,i) in progress_sections">
+							<template v-if="step.title && step.progress_color">
+								<div class="progress" :style="{width : `${100 / progress_sections.filter(x=>x.title && x.progress_color).length}%`}">
+									<div class="progress-bar" :class="{'current' : step_section == step.index}" role="progressbar" :style="{width : getProgressSectionPercentage(step),backgroundColor : step.progress_color}" aria-valuemin="0" aria-valuemax="100">
+										<div class="value">
+											{{ step_section }}/{{ step.total_questions }}
+										</div>
+									</div>
+								</div>
+							</template>
+						</template>
+					</div>
 				</div>
 			</nav>
 			<div class="container-fluid critera h-100 d-flex flex-column">

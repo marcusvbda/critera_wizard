@@ -1,10 +1,8 @@
 {
 	"sections" : [
 		{
-			"title" : "00. Inicial",
 			"questions" : [
 				{
-					"show_progress" : false,
 					"text" : "<p>Oi, tudo bem?</p>Seja bem vindo à Critera<p>",
 					"subtext" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Sit amet justo donec enim diam. Enim nunc faucibus a pellentesque sit amet porttitor eget. Massa tincidunt dui ut ornare lectus sit amet est.",
 					"inputs" : [
@@ -20,10 +18,21 @@
 		},
 		{
 			"title" : "01. Informações pessoais",
+			"progress_color": "#AED145",
 			"questions" : [
 				{
-					"show_progress" : true,
 					"text" : "<p>{{context.nickname}}, qual é seu nome completo ?<p>",
+					"inputs" : [
+						{
+							"placeholder" : "Ex: João da Silva",
+							"field" : "full_name" ,
+							"type" : "text",
+							"required" : true
+						}
+					]
+				},
+				{
+					"text" : "<p>bla bla bla<p>",
 					"inputs" : [
 						{
 							"placeholder" : "Ex: João da Silva",
@@ -34,6 +43,21 @@
 					]
 				}
 			]
+		},
+		{
+			"title" : "02. Saúde",
+			"progress_color": "#6D5DC7",
+			"questions" : []
+		},
+		{
+			"title" : "03. Hábitos",
+			"progress_color": "#71CBE6",
+			"questions" : []
+		},
+		{
+			"title" : "04. Saúde Mental",
+			"progress_color": "#2A2F6E",
+			"questions" : []
 		}
 	]
 }
