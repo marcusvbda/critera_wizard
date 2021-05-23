@@ -211,6 +211,46 @@
 							}
 						]
 					}
+				},
+				{
+					"text" : "<p>Endocrinologia<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "endocrinology" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "diabetes", 
+								"label" : "Diabetes"
+							},
+							{
+								"value" : "hypothyroidism", 
+								"label" : "Hipotireoidismo"
+							},
+							{
+								"value" : "hyperthyroidism", 
+								"label" : "Hipertireoidismo"
+							},
+							{
+								"value" : "threoid_cancer", 
+								"label" : "Câncer de treóide"
+							},
+							{
+								"value" : "obesity", 
+								"label" : "Obesidade"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
 				}
 			]
 		},

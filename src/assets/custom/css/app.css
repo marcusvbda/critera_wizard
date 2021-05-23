@@ -310,3 +310,17 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 .form-check .critera.ball-input .form-check-input {
 	display: none;
 }
+
+.other-section {
+	margin-top: 32px;
+}
+
+.other-section .label-input {
+	margin-bottom: 0;
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 26px;
+	color: #999999;
+}

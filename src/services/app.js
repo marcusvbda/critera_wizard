@@ -1,31 +1,32 @@
-// const initalState = () => ({
-// 	api_url: "/api.json",
-// 	step_section: 0,
-// 	step_question: 0,
-// 	sections: [],
-// 	form: {},
-// 	visible: false
-// })
 const initalState = () => ({
 	api_url: "/api.json",
-	step_section: 2,
-	step_question: 1,
+	step_section: 0,
+	step_question: 0,
 	sections: [],
-	form: {
-		nick_name: "Vinicius",
-		full_name: "Vinicius Bassalobre",
-		doc_number: "406.145.898-19",
-		birthdate: "08/04/1992",
-		gender: "male",
-		marital_status: "stable",
-		has_children: false,
-		level_of_education: "complete_university",
-		height: 1.74,
-		weight: 84,
-		level_of_mental_health: 7
-	},
+	form: {},
 	visible: false
 })
+// const initalState = () => ({
+// 	api_url: "/api.json",
+// 	step_section: 2,
+// 	step_question: 0,
+// 	sections: [],
+// 	form: {
+// 		nick_name: "Vinicius",
+// 		full_name: "Vinicius Bassalobre",
+// 		doc_number: "406.145.898-19",
+// 		birthdate: "08/04/1992",
+// 		gender: "male",
+// 		marital_status: "stable",
+// 		has_children: false,
+// 		level_of_education: "complete_university",
+// 		height: 1.74,
+// 		weight: 84,
+// 		level_of_mental_health: 7,
+// 		cardiovascular: ['none'],
+// 	},
+// 	visible: false
+// })
 
 Vue.directive('mask', VueMask.VueMaskDirective)
 new Vue({
@@ -36,33 +37,39 @@ new Vue({
 	created() {
 		this.loadSections()
 	},
-	watch: {
-		form: {
-			handler(val) {
-				console.log(val)
-			},
-			deep: true
-		}
-	},
+	// watch: {
+	// 	form: {
+	// 		handler(val) {
+	// 			console.log(val)
+	// 		},
+	// 		deep: true
+	// 	}
+	// },
 	computed: {
 		global_index() {
 			return `${this.step_section}_${this.step_question}`
 		},
 		current_section() {
-			return this.sections[this.step_section]
+			return this.getCurrentSection()
 		},
 		current_question() {
-			this.defineDefaultValues(this.current_section?.questions[this.step_question])
-			return this.current_section?.questions[this.step_question]
+			return this.getCurrentQuestion()
 		},
-		current_input() {
-			return this.current_question.input ?? {}
+		input() {
+			let current_question = this.getCurrentQuestion()
+			return current_question?.input ?? {}
 		},
 		has_more_question() {
 			return this.current_section?.questions.length > (this.step_question + 1)
 		},
 		has_more_sections() {
 			return this.sections.length > (this.step_section + 1)
+		},
+		others_selected() {
+			if (!Array.isArray(this.form[this.input.field])) {
+				return false
+			}
+			return this.form[this.input.field].includes("others")
 		},
 		can_go_back() {
 			return this.global_index != '0_0'
@@ -80,14 +87,27 @@ new Vue({
 			return steps
 		},
 		can_next() {
-			let input_success = this.form[this.current_input.field] != undefined && this.testRegex(this.current_input.validation_rule, this.form[this.current_input.field])
-			return input_success
+			let input_success = this.form[this.input.field] != undefined && this.testRegex(this.input.validation_rule, this.form[this.input.field])
+			let passed_others = true
+			if (this.others_selected) {
+				passed_others = this.form[`${this.input.field}_others`] ? true : false
+			}
+			return input_success && passed_others
 		}
 	},
 	methods: {
+		getCurrentSection() {
+			return this.sections[this.step_section]
+		},
+		getCurrentQuestion() {
+			let section = this.getCurrentSection()
+			this.defineDefaultValues(section?.questions[this.step_question])
+			return section?.questions[this.step_question]
+		},
 		defineDefaultValues(question) {
-			console.log(question)
-			this.$set(this.form, question.input.field, question.input.default ?? null)
+			if (this.form[question.input.field] == undefined) {
+				this.$set(this.form, question.input.field, question.input.default ?? null)
+			}
 		},
 		testRegex(rule, value) {
 			let regex = new RegExp(rule ?? '$')
@@ -116,15 +136,13 @@ new Vue({
 			}
 			if (this.has_more_sections) {
 				this.step_question = 0
-				return this.step_section++
+				this.step_section++
+				return this.$forceUpdate()
 			}
 			this.finishWizard()
-		},
-		cleanForm() {
-			this.$set(this.form, this.current_question.input, undefined)
+			this.$forceUpdate()
 		},
 		previousQuestion() {
-			this.cleanForm()
 			if (this.step_question > 0) {
 				return this.step_question--
 			}
