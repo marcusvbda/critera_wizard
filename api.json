@@ -251,6 +251,410 @@
 							}
 						]
 					}
+				},
+				{
+					"text" : "<p>Respiratória<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "breathing" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "asthma", 
+								"label" : "Asma"
+							},
+							{
+								"value" : "allergic_rhinitis", 
+								"label" : "Rinite Alérgica"
+							},
+							{
+								"value" : "sinusitis", 
+								"label" : "Sinusite"
+							},
+							{
+								"value" : "dpoc", 
+								"label" : "Doença Pulmonar Obstrutiva Crônica (DPOC)/Enfisema"
+							},
+							{
+								"value" : "lung_cancer", 
+								"label" : "Câncer de Pulmão"
+							},
+							{
+								"value" : "Tuberculosis", 
+								"label" : "Tuberculose"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Gastrointestinal<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "gastrointestinal" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "gastritis_ulcer", 
+								"label" : "Gastrite/Ulcera"
+							},
+							{
+								"value" : "reflux", 
+								"label" : "Refluxo gastroesofagico"
+							},
+							{
+								"value" : "hernia", 
+								"label" : "Hernia inguinal ou umbilical"
+							},
+							{
+								"value" : "ulcer", 
+								"label" : "Retrocolite ulcerativa"
+							},
+							{
+								"value" : "crohn", 
+								"label" : "Doença de Crohn"
+							},
+							{
+								"value" : "irritable_bowel_syndrome", 
+								"label" : "Sindrome do colon irritável"
+							},
+							{
+								"value" : "stomach_cancer", 
+								"label" : "Câncer estômago"
+							},
+							{
+								"value" : "gut_cancer", 
+								"label" : "Cânecer intestino"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Sistema Nervoso<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "nervous_system" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "headache", 
+								"label" : "Dor de cabeça"
+							},
+							{
+								"value" : "migraine", 
+								"label" : "Enxaqueca"
+							},
+							{
+								"value" : "stroke", 
+								"label" : "Acidente Vascular Cerebral"
+							},
+							{
+								"value" : "transient_ischemic_accident", 
+								"label" : "Acidente Isquêmico Transitório"
+							},
+							{
+								"value" : "autoimmune_nervous_system_disease", 
+								"label" : "Doença auto-imune sistema nervoso"
+							},
+							{
+								"value" : "multiple_sclerosis", 
+								"label" : "Esclerose múltipla"
+							},
+							{
+								"value" : "nervous_system_cancer", 
+								"label" : "Câncer sistema nervoso"
+							},
+							{
+								"value" : "gut_cancer", 
+								"label" : "Cânecer intestino"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Osteomuscular / Reumatológico<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "osteomuscular_rheumatological" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "spine_pains", 
+								"label" : "Dores coluna"
+							},
+							{
+								"value" : "disc_protrusion_disc_herniation", 
+								"label" : "Protusão discal/Hernia de disco"
+							},
+							{
+								"value" : "fibromyalgia", 
+								"label" : "Fibromialgia"
+							},
+							{
+								"value" : "trauma", 
+								"label" : "Traumas"
+							},
+							{
+								"value" : "rheumatoid_arthritis", 
+								"label" : "Artrite reumatóide"
+							},
+							{
+								"value" : "lupus", 
+								"label" : "Lupus eritematoso sistemico "
+							},
+							{
+								"value" : "other_autoimmune_diseases", 
+								"label" : "Outras doenças auto-imunes"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Oftalmológica<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "ophthalmology" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "refractive_disease ", 
+								"label" : "Doença Refrativa (miopia, astimagtismo, presbiopia)"
+							},
+							{
+								"value" : "glaucoma", 
+								"label" : "Glaucoma"
+							},
+							{
+								"value" : "cataract", 
+								"label" : "Catarata"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Otorrinolaringologia<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "otorhinolaryngology" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "difficulty_listening", 
+								"label" : "Dificuldade de escutar"
+							},
+							{
+								"value" : "buzz", 
+								"label" : "Zumbido"
+							},
+							{
+								"value" : "vertigo", 
+								"label" : "Tontura/Vertigem"
+							},
+							{
+								"value" : "tumors", 
+								"label" : "Tumores"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Urologia<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "urology" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "urethritis", 
+								"label" : "Uretrite"
+							},
+							{
+								"value" : "erectile_dysfunction", 
+								"label" : "Disfunçaõ erétil"
+							},
+							{
+								"value" : "hyperplasia", 
+								"label" : "Hiperplasia Benigna da prostata"
+							},
+							{
+								"value" : "prostate_cancer", 
+								"label" : "Câncer próstata"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Pele<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "skin" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "atopic_dermatitis", 
+								"label" : "Dermatite atópica"
+							},
+							{
+								"value" : "other_dermatitis", 
+								"label" : "Outras dermatites"
+							},
+							{
+								"value" : "psoriasis", 
+								"label" : "Psoriase"
+							},
+							{
+								"value" : "skin_cancer", 
+								"label" : "Câncer de pele (basocelular ou espinocelular)"
+							},
+							{
+								"value" : "melanoma", 
+								"label" : "Melanoma"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Alergias<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "allergies" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "lactose_intolerance", 
+								"label" : "Intolerância a lactose"
+							},
+							{
+								"value" : "gluten_intolerance", 
+								"label" : "Intolerância a gluten"
+							},
+							{
+								"value" : "drug_allergy", 
+								"label" : "Alergias alimentares"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
+				},
+				{
+					"text" : "<p>Alergias<p>",
+					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
+					"input" : {
+						"field" : "allergies" ,
+						"default" : [],
+						"type" : "checkbox",
+						"validation_rule" : "^[^\\s]+$",
+						"options" : [
+							{
+								"value" : "lactose_intolerance", 
+								"label" : "Intolerância a lactose"
+							},
+							{
+								"value" : "gluten_intolerance", 
+								"label" : "Intolerância a gluten"
+							},
+							{
+								"value" : "drug_allergy", 
+								"label" : "Alergias alimentares"
+							},
+							{
+								"value" : "others", 
+								"label" : "Outras"
+							},
+							{
+								"value" : "none", 
+								"label" : "Nenhum das opções"
+							}
+						]
+					}
 				}
 			]
 		},
