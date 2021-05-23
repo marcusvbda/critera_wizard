@@ -4,7 +4,8 @@
 // 	step_question: 0,
 // 	sections: [],
 // 	form: {},
-// 	visible: false
+// 	visible: false,
+//  showing_confirm : false,
 // })
 const initalState = () => ({
 	api_url: "/api.json",
@@ -35,7 +36,8 @@ const initalState = () => ({
 		skin: ['Nenhuma das opções'],
 		allergies: ['Nenhuma das opções']
 	},
-	visible: false
+	visible: false,
+	showing_confirm: false
 })
 
 Vue.directive('mask', VueMask.VueMaskDirective)
@@ -47,15 +49,23 @@ new Vue({
 	created() {
 		this.loadSections()
 	},
-	// watch: {
-	// 	form: {
-	// 		handler(val) {
-
-	// 		},
-	// 		deep: true
-	// 	}
-	// },
+	watch: {
+		step_question() {
+			this.showing_confirm = false
+		}
+		// 	form: {
+		// 		handler(val) {
+		//			console.log(val)
+		// 		},
+		// 		deep: true
+		// 	}
+	},
 	computed: {
+		show_level_crud() {
+			let has_show = this.current_section?.show_level_crud ? true : false
+			let has_input = this.form[this.input.field].filter(x => !['Nenhuma das opções', 'Outras'].includes(x)).length > 0
+			return has_show && has_input
+		},
 		global_index() {
 			return `${this.step_section}_${this.step_question}`
 		},
@@ -67,7 +77,6 @@ new Vue({
 		},
 		input() {
 			let current_question = this.getCurrentQuestion()
-			console.log(current_question)
 			return current_question?.input ?? {}
 		},
 		has_more_question() {
@@ -151,7 +160,10 @@ new Vue({
 				})
 			})
 		},
-		nextQuestion() {
+		nextQuestion(confirmed = false) {
+			if (this.show_level_crud && !confirmed) {
+				return this.showing_confirm = true
+			}
 			if (this.has_more_question) {
 				this.step_question++
 				return this.$forceUpdate()

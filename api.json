@@ -106,6 +106,7 @@
 		{
 			"title" : "02. Saúde",
 			"progress_color": "#6D5DC7",
+			"show_level_crud" : true,
 			"questions" : [
 				{
 					"text" : "<p>De um modo geral, como você avaliaria o seu estado de saúde hoje?<p>",

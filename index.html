@@ -47,102 +47,120 @@
 				</div>
 			</nav>
 			<div class="container-fluid critera h-100 d-flex flex-column">
-				<div class="question-section mt-5">
-					<h1 class="text" v-if="current_question.text">
-						<dynamic-component :template-html="current_question.text" :key="`${global_index}_text`" :context="form" />
-					</h1>
-					<div class="subtext">
-						<div v-if="current_question.subtext">
-							<dynamic-component :template-html="current_question.subtext" :key="`${global_index}_subtext`" :context="form" />
-						</div>
-						<div class="separator"></div>
-					</div>
-				</div>
-				<div class="answer-section my-3">
-					<div class="row">
-						<div class="col-md-6 col-sm-12" v-if="['text'].includes(input.type)">
-							<div class="input-group" :class="{'is-success' : testRegex(input.validation_rule,form[input.field])}">
-								<input :type="input.type" v-mask="input.mask" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
+				<template v-if="!showing_confirm">
+					<div class="question-section mt-5">
+						<h1 class="text" v-if="current_question.text">
+							<dynamic-component :template-html="current_question.text" :key="`${global_index}_text`" :context="form" />
+						</h1>
+						<div class="subtext">
+							<div v-if="current_question.subtext">
+								<dynamic-component :template-html="current_question.subtext" :key="`${global_index}_subtext`" :context="form" />
 							</div>
+							<div class="separator"></div>
 						</div>
-						<template v-if="['radio'].includes(input.type)">
-							<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
-								<label class="critera radio h-100" :class="{'selected' : option == form[input.field]}">
-									<div class="col-sm-12 col-md-10">
+					</div>
+					<div class="answer-section my-3">
+						<div class="row">
+							<div class="col-md-6 col-sm-12" v-if="['text'].includes(input.type)">
+								<div class="input-group" :class="{'is-success' : testRegex(input.validation_rule,form[input.field])}">
+									<input :type="input.type" v-mask="input.mask" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />
+								</div>
+							</div>
+							<template v-if="['radio'].includes(input.type)">
+								<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
+									<label class="critera radio h-100" :class="{'selected' : option == form[input.field]}">
+										<div class="col-sm-12 col-md-10">
+											{{ option }}
+										</div>
+										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+											<input class="form-check-input" type="radio" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]">
+											<i class="far fa-dot-circle ml-auto" v-if='option == form[input.field]'></i>
+											<i class="far fa-circle ml-auto" v-else></i>
+										</div>
+									</label>
+								</div>
+							</template>
+							<template v-if="['ball-input'].includes(input.type)">
+								<div class="form-check" v-for="(option,o) in input.options">
+									<label class="critera ball-input" :class="{'selected' : option == form[input.field]}">
 										{{ option }}
-									</div>
-									<div class="col-sm-12 col-md-2 col-sm-12 text-right">
 										<input class="form-check-input" type="radio" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]">
-										<i class="far fa-dot-circle ml-auto" v-if='option == form[input.field]'></i>
-										<i class="far fa-circle ml-auto" v-else></i>
-									</div>
-								</label>
-							</div>
-						</template>
-						<template v-if="['ball-input'].includes(input.type)">
-							<div class="form-check" v-for="(option,o) in input.options">
-								<label class="critera ball-input" :class="{'selected' : option == form[input.field]}">
-									{{ option }}
-									<input class="form-check-input" type="radio" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]">
-								</label>
-							</div>
-						</template>
-						<template v-if="['checkbox'].includes(input.type)">
-							<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
-								<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes(option)}">
-									<div class="col-sm-12 col-md-10">
-										{{ option }}
-									</div>
-									<div class="col-sm-12 col-md-2 col-sm-12 text-right">
-										<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]" @change="changeOption(false)">
-										<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes(option)'></i>
-										<i class="far fa-circle ml-auto" v-else></i>
-									</div>
-								</label>
-							</div>
-							<div class="form-check col-sm-12 col-md-3">
-								<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Outras')}">
-									<div class="col-sm-12 col-md-10">
-										Outras
-									</div>
-									<div class="col-sm-12 col-md-2 col-sm-12 text-right">
-										<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_others`" value="Outras" v-model="form[input.field]" @change="changeOption(false)">
-										<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Outras")'></i>
-										<i class="far fa-circle ml-auto" v-else></i>
-									</div>
-								</label>
-							</div>
-							<div class="form-check col-sm-12 col-md-3">
-								<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Nenhuma das opções')}">
-									<div class="col-sm-12 col-md-10">
-										Nenhuma das opções
-									</div>
-									<div class="col-sm-12 col-md-2 col-sm-12 text-right">
-										<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_none`" value="Nenhuma das opções" v-model="form[input.field]" @change="changeOption(true)">
-										<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Nenhuma das opções")'></i>
-										<i class="far fa-circle ml-auto" v-else></i>
-									</div>
-								</label>
-							</div>
-						</template>
-					</div>
-					<div class="row other-section" v-if="others_selected">
-						<div class="col-md-6 col-sm-12">
-							<label class="label-input">Outros</label>
-							<div class="input-group" :class="{'is-success' : testRegex(input.validation_rule,form[`${input.field}_others`])}">
-								<input type="text" class="form-control" placeholder="" v-model="form[`${input.field}_others`]" />
+									</label>
+								</div>
+							</template>
+							<template v-if="['checkbox'].includes(input.type)">
+								<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
+									<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes(option)}">
+										<div class="col-sm-12 col-md-10">
+											{{ option }}
+										</div>
+										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+											<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]" @change="changeOption(false)">
+											<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes(option)'></i>
+											<i class="far fa-circle ml-auto" v-else></i>
+										</div>
+									</label>
+								</div>
+								<div class="form-check col-sm-12 col-md-3">
+									<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Outras')}">
+										<div class="col-sm-12 col-md-10">
+											Outras
+										</div>
+										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+											<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_others`" value="Outras" v-model="form[input.field]" @change="changeOption(false)">
+											<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Outras")'></i>
+											<i class="far fa-circle ml-auto" v-else></i>
+										</div>
+									</label>
+								</div>
+								<div class="form-check col-sm-12 col-md-3">
+									<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Nenhuma das opções')}">
+										<div class="col-sm-12 col-md-10">
+											Nenhuma das opções
+										</div>
+										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+											<input class="form-check-input" type="checkbox" :name="input.field" :id="`${input.field}_none`" value="Nenhuma das opções" v-model="form[input.field]" @change="changeOption(true)">
+											<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Nenhuma das opções")'></i>
+											<i class="far fa-circle ml-auto" v-else></i>
+										</div>
+									</label>
+								</div>
+							</template>
+						</div>
+						<div class="row other-section" v-if="others_selected">
+							<div class="col-md-6 col-sm-12">
+								<label class="label-input">Outros</label>
+								<div class="input-group" :class="{'is-success' : testRegex(input.validation_rule,form[`${input.field}_others`])}">
+									<input type="text" class="form-control" placeholder="" v-model="form[`${input.field}_others`]" />
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="buttons-section mt-auto">
-					<div class="row">
-						<div class="col-12 d-flex justify-content-end">
-							<button class="btn criteria outline mr-3" @click="previousQuestion" v-if="can_go_back">Voltar</button>
-							<button class="btn criteria" @click="nextQuestion" :disabled="!can_next">Próxima</button>
+					<div class="buttons-section mt-auto">
+						<div class="row">
+							<div class="col-12 d-flex justify-content-end">
+								<button class="btn criteria outline mr-3" @click="previousQuestion" v-if="can_go_back">Voltar</button>
+								<button class="btn criteria" @click="nextQuestion(false)" :disabled="!can_next">Próxima</button>
+							</div>
 						</div>
 					</div>
-				</div>
+				</template>
+				<template v-else>
+					<div class="question-section mt-5">
+						titulo
+					</div>
+					<div class="answer-section my-3">
+						confirmacao
+					</div>
+					<div class="buttons-section mt-auto">
+						<div class="row">
+							<div class="col-12 d-flex justify-content-end">
+								<button class="btn criteria outline mr-3" @click="showing_confirm = false">Voltar</button>
+								<button class="btn criteria" @click="nextQuestion(true)" :disabled="!can_next">Confirmar</button>
+							</div>
+						</div>
+					</div>
+				</template>
 			</div>
 		</div>
 	</main>
