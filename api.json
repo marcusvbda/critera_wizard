@@ -805,7 +805,72 @@
 			"progress_color": "#2A2F6E",
 			"questions" : [
 				{
-					"text" : "teste"
+					"text" : "<p>No geral como você classifica a sua saúde mental agora?<p>",
+					"input" : {
+						"field" : "mental_health_level",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Muito ruim","Ruim","Muito boa","Excelente"]
+					}
+				},
+				{
+					"text" : "<p>Por favor, leia cada afirmativa e marque uma das alternativas que indique quando a afirmativa aconteceu a você na última semana. <p>",
+					"subtext" : "Não há respostas certas ou erradas. Não gaste muito tempo em nenhuma das afirmativas"
+				},
+				{
+					"text" : "<p>No geral como você classifica a sua saúde mental agora?<p>",
+					"input" : {
+						"field" : "difficulty_to_calm_down",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu percebi que estava com a boca seca</p>",
+					"input" : {
+						"field" : "dry_mouth",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu não conseguia ter sentimentos positivos</p>",
+					"input" : {
+						"field" : "cant_have_positive_feelings",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu tive dificuldade para respirar</p>",
+					"subtext" : "(por exemplo, tive respiração muito rápida, ou falta de ar sem ter feito esforço físico)",
+					"input" : {
+						"field" : "difficulty_breathing_mental_health",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Foi difícil ter iniciativa para fazer as coisas</p>",
+					"input" : {
+						"field" : "initiative_to_do_something",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Em geral, tive reações exageradas às situações</p>",
+					"input" : {
+						"field" : "exaggerated_reactions",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
 				}
 			]
 		}

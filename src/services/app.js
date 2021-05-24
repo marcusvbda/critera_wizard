@@ -11,7 +11,7 @@
 const initalState = () => ({
 	api_url: "/api.json",
 	step_section: 4,
-	step_question: 0,
+	step_question: 7,
 	sections: [],
 	form: {
 		nick_name: "Joao",
@@ -73,6 +73,14 @@ const initalState = () => ({
 		physical_activity_vigorous_frequency: "Nenhum dia por semana",
 		physical_activity_moderate_frequency: "Nenhum dia por semana",
 		walking_frequency: "Nenhum dia por semana",
+		sitting_time: "Nenhum tempo",
+		mental_health_level: "Muito ruim",
+		difficulty_to_calm_down: "Não aconteceu comigo nessa semana",
+		dry_mouth: "Não aconteceu comigo nessa semana",
+		cant_have_positive_feelings: "Não aconteceu comigo nessa semana",
+		difficulty_breathing_mental_health: "Não aconteceu comigo nessa semana",
+		initiative_to_do_something: "Não aconteceu comigo nessa semana",
+		exaggerated_reactions: "Não aconteceu comigo nessa semana"
 	},
 	visible: false,
 	showing_confirm: false,
