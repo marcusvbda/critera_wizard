@@ -7,7 +7,8 @@
 	<title>Critera - Smart Health</title>
 	<link href="./src/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="./src/assets/fontawesome/css/all.css" rel="stylesheet">
-	<link href="./src/assets/custom/css/app.css" rel="stylesheet" />
+	<link href="./src/assets/custom/css/app_desktop.css" rel="stylesheet" />
+	<link href="./src/assets/custom/css/app_mobile.css" rel="stylesheet" />
 	<script src="./src/assets/bootstrap/js/bootstrap.native.min.js"></script>
 
 </head>
@@ -24,10 +25,15 @@
 		<div v-if="visible" class="h-100">
 			<nav class="navbar progress-section bg-light navbar-dark fixed-top px-0" v-if="show_progress">
 				<div class="container-fluid critera d-flex flex-column">
-					<div class="w-100">
+					<div class="w-100 d-flex flex-row">
 						<template v-for="(step,i) in progress_sections">
 							<template v-if="step.title && step.progress_color">
-								<span class="step" :class="{'not_current': step.index > step_section}" :style="{color : step.progress_color}">{{ step.number }}. {{ step.title }}</span>
+								<div class="step d-flex" :class="{'not_current': step.index > step_section,'current' : step.index == step_section}" :style="{color : step.progress_color}">
+									<div>{{ step.number }}. {{ step.title }}</div>
+									<div class="mobile-value ml-auto" v-if="!finished">
+										{{ step_question+1+adicional_steps }}/{{ step.total_questions+adicional_steps }}
+									</div>
+								</div>
 							</template>
 						</template>
 					</div>
@@ -69,10 +75,10 @@
 							<template v-if="['radio'].includes(input.type)">
 								<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
 									<label class="critera radio h-100" :class="{'selected' : option == form[input.field]}">
-										<div class="col-sm-12 col-md-10">
+										<div class="col flex-grow-1">
 											{{ option }}
 										</div>
-										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+										<div class="col-2 text-center">
 											<input class="form-check-input" type="radio" :name="input.field" :id="`${input.field}_${o}`" :value="option" v-model="form[input.field]">
 											<i class="far fa-dot-circle ml-auto" v-if='option == form[input.field]'></i>
 											<i class="far fa-circle ml-auto" v-else></i>
@@ -91,10 +97,10 @@
 							<template v-if="['checkbox'].includes(input.type)">
 								<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in input.options">
 									<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes(option)}">
-										<div class="col-sm-12 col-md-10">
+										<div class="col flex-grow-1">
 											{{ option }}
 										</div>
-										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+										<div class="col-2 text-center">
 											<input class="form-check-input" type="checkbox" :name="input.field" :value="option" v-model="form[input.field]" @change="changeOption(false)">
 											<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes(option)'></i>
 											<i class="far fa-circle ml-auto" v-else></i>
@@ -103,10 +109,10 @@
 								</div>
 								<div class="form-check col-sm-12 col-md-3">
 									<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Outras')}">
-										<div class="col-sm-12 col-md-10">
+										<div class="col flex-grow-1">
 											Outras
 										</div>
-										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+										<div class="col-2 text-center">
 											<input class="form-check-input" type="checkbox" :name="input.field" value="Outras" v-model="form[input.field]" @change="changeOption(false)">
 											<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Outras")'></i>
 											<i class="far fa-circle ml-auto" v-else></i>
@@ -115,10 +121,10 @@
 								</div>
 								<div class="form-check col-sm-12 col-md-3">
 									<label class="critera radio h-100" :class="{'selected' : (form[input.field]??[]).includes('Nenhuma das opções')}">
-										<div class="col-sm-12 col-md-10">
-											Nenhuma das opções
+										<div class="col flex-grow-1">
+											Nenhuma das Opções
 										</div>
-										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
+										<div class="col-2 text-center">
 											<input class="form-check-input" type="checkbox" :name="input.field" value="Nenhuma das opções" v-model="form[input.field]" @change="changeOption(true)">
 											<i class="far fa-dot-circle ml-auto" v-if='(form[input.field]??[]).includes("Nenhuma das opções")'></i>
 											<i class="far fa-circle ml-auto" v-else></i>

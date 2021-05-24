@@ -1,0 +1,62 @@
+@media screen and (max-width: 767px) {
+	.critera.container-fluid {
+		padding: 0 22.53px;
+	}
+	.question-section .text {
+		font-size: 22px;
+		line-height: 26px;
+	}
+	.question-section .subtext {
+		font-size : 16px;
+	}
+	.btn {
+		flex-grow: 1;
+		padding: 25px!important;
+	}
+	.buttons-section {
+		padding-bottom: 24px;
+	}
+	.progress-section .step {
+		width: 100%;
+		margin-right: 0;
+	}
+	.progress-section .step {
+		display: none!important;
+	}
+	.progress-section .step.not_current {
+		display: none!important;
+	}
+	.progress-section .step.current {
+		display: flex!important;
+	}
+	.progress-section .step .mobile-value{
+		display: block;
+	}
+	.progress-section .step.current span {
+		font-family: Votorantim Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 140.62%;
+		text-align: center;
+	}
+	.navbar.progress-section  {
+		height: 75px;
+	}
+	.progress-section .progress-row .progress .progress-bar.current::after {
+		display: none;
+	}
+	.progress-section .progress-row .progress .progress-bar.current .value {
+		display: none;
+	}
+	#app.with-progress {
+		padding-top: 178px;
+	}
+	.form-check {
+		margin-top: 5px;
+	}
+	.question-section .text.finished {
+		font-size: 47px;
+		line-height: 67px;
+	}
+}
