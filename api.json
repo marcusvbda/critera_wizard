@@ -16,7 +16,8 @@
 			]
 		},
 		{
-			"title" : "01. Informações pessoais",
+			"number" : "01",
+			"title" : "Informações pessoais",
 			"progress_color": "#AED145",
 			"show_level_crud" : true,
 			"questions" : [
@@ -106,7 +107,8 @@
 			]
 		},
 		{
-			"title" : "02. Saúde",
+			"number" : "02",
+			"title" : "Saúde",
 			"progress_color": "#6D5DC7",
 			"show_level_crud" : true,
 			"questions" : [
@@ -320,7 +322,8 @@
 			]
 		},
 		{
-			"title" : "03. Hábitos",
+			"number" : "03",
+			"title" : "Hábitos",
 			"progress_color": "#71CBE6",
 			"questions" : [
 				{
@@ -336,7 +339,8 @@
 			]
 		},
 		{
-			"title" : "04. Saúde Mental",
+			"number" : "04",
+			"title" : "Saúde Mental",
 			"progress_color": "#2A2F6E",
 			"questions" : []
 		}

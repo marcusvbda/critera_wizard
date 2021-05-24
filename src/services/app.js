@@ -10,7 +10,7 @@
 // })
 const initalState = () => ({
 	api_url: "/api.json",
-	step_section: 3,
+	step_section: 2,
 	step_question: 1,
 	sections: [],
 	form: {
@@ -105,6 +105,7 @@ new Vue({
 		},
 		progress_sections() {
 			let steps = this.sections.map((x, i) => ({
+				number: x.number,
 				title: x.title,
 				progress_color: x.progress_color,
 				index: i,
@@ -121,12 +122,25 @@ new Vue({
 			return input_success && passed_others
 		},
 		can_next_details() {
-			let details = this.details[this.input.field]
+			let details = this.details[this.current_section.title][this.input.field]
 			let passed = Object.keys(details).map(x => details[x]).filter(x => !x).length == 0
 			return passed
+		},
+		adicional_steps() {
+			let details = this.details[this.current_section.title] ?? {}
+			let keys = Object.keys(details)
+			let qty = Object.keys(keys).length ?? 0
+			console.log("aqui", keys, qty)
+			return qty
 		}
 	},
 	methods: {
+		goBackDetails() {
+			let current_details = Object.assign({}, this.details[this.current_section.title])
+			delete current_details[this.input.field]
+			this.$set(this.details, this.current_section.title, current_details)
+			this.showing_confirm = false
+		},
 		changeOption(none = false) {
 			if (none) {
 				this.form[this.input.field] = this.form[this.input.field].filter(x => x == "Nenhuma das opções")
@@ -140,7 +154,7 @@ new Vue({
 		getCurrentQuestion() {
 			let section = this.getCurrentSection()
 			let question = section?.questions[this.step_question]
-			if (question.condition) {
+			if (question?.condition) {
 				question = question[this.form[question.condition]]
 			}
 			this.defineDefaultValues(question)
@@ -173,9 +187,12 @@ new Vue({
 		},
 		nextQuestion(confirmed = false) {
 			if (this.show_level_crud && !confirmed) {
-				this.$set(this.details, this.input.field, {})
+				if (!this.details[this.current_section.title]) {
+					this.$set(this.details, this.current_section.title, {})
+				}
+				this.$set(this.details[this.current_section.title], this.input.field, {})
 				this.form[this.input.field].forEach(x => {
-					this.$set(this.details[this.input.field], x, null)
+					this.$set(this.details[this.current_section.title][this.input.field], x, null)
 				})
 				return this.showing_confirm = true
 			}

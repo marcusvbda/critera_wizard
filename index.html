@@ -27,17 +27,17 @@
 					<div class="w-100">
 						<template v-for="(step,i) in progress_sections">
 							<template v-if="step.title && step.progress_color">
-								<span class="step" :class="{'not_current': step.index != step_section}" :style="{color : step.progress_color}">{{ step.title }}</span>
+								<span class="step" :class="{'not_current': step.index != step_section}" :style="{color : step.progress_color}">{{ step.number }}. {{ step.title }}</span>
 							</template>
 						</template>
 					</div>
 					<div class="w-100 d-flex flex-row progress-row">
 						<template v-for="(step,i) in progress_sections">
 							<template v-if="step.title && step.progress_color">
-								<div class="progress" :style="{width : `${100 / progress_sections.filter(x=>x.title && x.progress_color).length}%`}">
+								<div class="progress" :style="{width : `${100 / progress_sections.filter(x=>x.title && x.progress_color).length+adicional_steps}%`}">
 									<div class="progress-bar" :class="{'current' : step_section == step.index}" role="progressbar" :style="{width : getProgressSectionPercentage(step),backgroundColor : step.progress_color}" aria-valuemin="0" aria-valuemax="100">
 										<div class="value">
-											{{ step_question+1 }}/{{ step.total_questions }}
+											{{ step_question+1 }}/{{ step.total_questions+adicional_steps }}
 										</div>
 									</div>
 								</div>
@@ -140,7 +140,7 @@
 						<div class="row">
 							<div class="col-12 d-flex justify-content-end">
 								<button class="btn criteria outline mr-3" @click="previousQuestion" v-if="can_go_back">Voltar</button>
-								<button class="btn criteria" @click="nextQuestion(false)" :disabled="!can_next">Prosseguir</button>
+								<button class="btn criteria" @click="nextQuestion(false)" :disabled="!can_next">Próxima</button>
 							</div>
 						</div>
 					</div>
@@ -158,7 +158,7 @@
 						</div>
 					</div>
 					<div class="answer-section my-3">
-						<template v-for="(r,i) in Object.keys(details[input.field])">
+						<template v-for="(r,i) in Object.keys(details[current_section.title][input.field])">
 							<div class="row detail-row" :key="i">
 								<div class="col-12">
 									<b>{{ r }}</b>
@@ -166,13 +166,13 @@
 							</div>
 							<div class="row mt-1">
 								<div class="form-check col-sm-12 col-md-3" v-for="(option,o) in ['Ativa','Tratada','Inativa']">
-									<label class="critera radio h-100" :class="{'selected' : option == details[input.field][r]}">
+									<label class="critera radio h-100" :class="{'selected' : option == details[current_section.title][input.field][r]}">
 										<div class="col-sm-12 col-md-10">
 											{{ option }}
 										</div>
 										<div class="col-sm-12 col-md-2 col-sm-12 text-right">
-											<input class="form-check-input" type="radio" :name="`${input.field}_detail_${i}`" :value="option" v-model="details[input.field][r]">
-											<i class="far fa-dot-circle ml-auto" v-if='option == details[input.field][r]'></i>
+											<input class="form-check-input" type="radio" :name="`${input.field}_detail_${i}`" :value="option" v-model="details[current_section.title][input.field][r]">
+											<i class="far fa-dot-circle ml-auto" v-if='option == details[current_section.title][input.field][r]'></i>
 											<i class="far fa-circle ml-auto" v-else></i>
 										</div>
 									</label>
@@ -183,8 +183,8 @@
 					<div class="buttons-section mt-auto">
 						<div class="row">
 							<div class="col-12 d-flex justify-content-end">
-								<button class="btn criteria outline mr-3" @click="showing_confirm = false">Voltar</button>
-								<button class="btn criteria" @click="nextQuestion(true)" :disabled="!can_next_details">Confirmar</button>
+								<button class="btn criteria outline mr-3" @click="goBackDetails">Voltar</button>
+								<button class="btn criteria" @click="nextQuestion(true)" :disabled="!can_next_details">Prosseguir</button>
 							</div>
 						</div>
 					</div>
