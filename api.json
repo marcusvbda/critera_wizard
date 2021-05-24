@@ -303,21 +303,6 @@
 							"Alergias alimentares"
 						]
 					}
-				},
-				{
-					"text" : "<p>Alergias<p>",
-					"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
-					"input" : {
-						"field" : "allergies" ,
-						"default" : [],
-						"type" : "checkbox",
-						"validation_rule" : "\\S",
-						"options" : [
-							"Intolerância a lactose",
-							"Intolerância a gluten",
-							"Alergias alimentares"
-						]
-					}
 				}
 			]
 		},
@@ -334,6 +319,41 @@
 						"type" : "radio",
 						"validation_rule" : "\\S",
 						"options" : ["Sim","Não","Não fuma há mais de 6 meses"]
+					}
+				},
+				{
+					"condition" : "smoker",
+					"Sim" : {
+						"text" : "<p>Quanto tempo depois de acordar você fuma o primeiro cigarro?<p>",
+						"input" : {
+							"field" : "first_cigarette" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Após 60 minutos","Entre 31 e 60 minutos","Entre seis e 30 mintuos","Nos primeiros 5 minutos"]
+						}
+					}
+				},
+				{
+					"text" : "<p>Eu tive dificuldade para respirar<p>",
+					"subtext" : "Por exemplo: igrejas, local de trabalho, cinemas, shoppings, etc...",
+					"input" : {
+						"field" : "difficulty_breathing" ,
+						"default" : [],
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Sim","Não"]
+					}
+				},
+				{
+					"condition" : "smoker",
+					"Sim" : {
+						"text" : "<p>Qual o cigarro mais difícil de largar de fumar?<p>",
+						"input" : {
+							"field" : "harder_cigarette" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["O primeiro da manhã","Qualquer outro"]
+						}
 					}
 				}
 			]

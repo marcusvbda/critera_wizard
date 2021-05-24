@@ -1,47 +1,47 @@
-// const initalState = () => ({
-// 	api_url: "/api.json",
-// 	step_section: 0,
-// 	step_question: 0,
-// 	sections: [],
-// 	form: {},
-// 	visible: false,
-// 	showing_confirm: false,
-//  details : {}
-// })
 const initalState = () => ({
 	api_url: "/api.json",
-	step_section: 3,
+	step_section: 0,
 	step_question: 0,
 	sections: [],
-	form: {
-		nick_name: "Joao",
-		full_name: "Joao da Silva",
-		doc_number: "111.111.111-19",
-		birthdate: "08/04/1992",
-		gender: "Masculino",
-		marital_status: "Namorando",
-		has_children: "Sim",
-		level_of_education: "Superior completo",
-		height: 1.74,
-		weight: 84,
-		level_of_mental_health: 7,
-		cardiovascular: ['Nenhuma das opções'],
-		breathing: ["Nenhuma das opções"],
-		gastrointestinal: ['Nenhuma das opções'],
-		nervous_system: ['Nenhuma das opções'],
-		osteomuscular_rheumatological: ['Nenhuma das opções'],
-		endocrinology: ['Nenhuma das opções'],
-		ophthalmology: ['Nenhuma das opções'],
-		otorhinolaryngology: ['Nenhuma das opções'],
-		urology: ['Nenhuma das opções'],
-		skin: ['Nenhuma das opções'],
-		allergies: ['Nenhuma das opções'],
-		smoker: ["Sim"]
-	},
+	form: {},
 	visible: false,
 	showing_confirm: false,
-	details: {},
+	details: {}
 })
+// const initalState = () => ({
+// 	api_url: "/api.json",
+// 	step_section: 3,
+// 	step_question: 0,
+// 	sections: [],
+// 	form: {
+// 		nick_name: "Joao",
+// 		full_name: "Joao da Silva",
+// 		doc_number: "111.111.111-19",
+// 		birthdate: "08/04/1992",
+// 		gender: "Masculino",
+// 		marital_status: "Namorando",
+// 		has_children: "Sim",
+// 		level_of_education: "Superior completo",
+// 		height: 1.74,
+// 		weight: 84,
+// 		level_of_mental_health: 7,
+// 		cardiovascular: ['Nenhuma das opções'],
+// 		breathing: ["Nenhuma das opções"],
+// 		gastrointestinal: ['Nenhuma das opções'],
+// 		nervous_system: ['Nenhuma das opções'],
+// 		osteomuscular_rheumatological: ['Nenhuma das opções'],
+// 		endocrinology: ['Nenhuma das opções'],
+// 		ophthalmology: ['Nenhuma das opções'],
+// 		otorhinolaryngology: ['Nenhuma das opções'],
+// 		urology: ['Nenhuma das opções'],
+// 		skin: ['Nenhuma das opções'],
+// 		allergies: ['Nenhuma das opções'],
+// 		smoker: "Não"
+// 	},
+// 	visible: false,
+// 	showing_confirm: false,
+// 	details: {},
+// })
 
 Vue.directive('mask', VueMask.VueMaskDirective)
 new Vue({
@@ -64,6 +64,23 @@ new Vue({
 		}
 	},
 	computed: {
+		computed_sections() {
+			let original_sections = Object.assign([], this.sections)
+			let computed = original_sections.map(section => {
+				section.computed_questions = section.questions.map(question => {
+					if (!question?.condition) {
+						return question
+					} else {
+						let conditional_questions = question[this.form[question.condition]]
+						if (conditional_questions) {
+							return conditional_questions
+						}
+					}
+				}).filter(x => x)
+				return section
+			})
+			return computed
+		},
 		show_level_crud() {
 			let has_show = this.current_section?.show_level_crud ? true : false
 			let has_input = false
@@ -86,7 +103,7 @@ new Vue({
 			return current_question?.input ?? {}
 		},
 		has_more_question() {
-			return this.current_section?.questions.length > (this.step_question + 1)
+			return this.current_section?.computed_questions.length > (this.step_question + 1)
 		},
 		has_more_sections() {
 			return this.sections.length > (this.step_section + 1)
@@ -104,12 +121,12 @@ new Vue({
 			return this.current_section?.title ? true : false
 		},
 		progress_sections() {
-			let steps = this.sections.map((x, i) => ({
+			let steps = this.computed_sections.map((x, i) => ({
 				number: x.number,
 				title: x.title,
 				progress_color: x.progress_color,
 				index: i,
-				total_questions: x.questions.length
+				total_questions: x.computed_questions.length
 			}))
 			return steps
 		},
@@ -148,11 +165,11 @@ new Vue({
 			}
 		},
 		getCurrentSection() {
-			return this.sections[this.step_section]
+			return this.computed_sections[this.step_section]
 		},
 		getCurrentQuestion() {
 			let section = this.getCurrentSection()
-			let question = section?.questions[this.step_question]
+			let question = section?.computed_questions[this.step_question]
 			if (question?.condition) {
 				question = question[this.form[question.condition]]
 			}
@@ -171,7 +188,7 @@ new Vue({
 		getProgressSectionPercentage(step) {
 			if (step.index > this.step_section) return "0%"
 			if (step.index < this.step_section) return "100%"
-			let total = this.sections[step.index].questions.length
+			let total = this.computed_sections[step.index].computed_questions.length
 			let current = this.step_question + 1
 			let percentage = Math.round(current * 100 / total)
 			return `${percentage}%`
@@ -213,7 +230,7 @@ new Vue({
 			}
 			if (this.step_question == 0) {
 				this.step_section--
-				return this.step_question = this.current_section.questions.length - 1
+				return this.step_question = this.current_section.computed_questions.length - 1
 			}
 		},
 		finishWizard() {
