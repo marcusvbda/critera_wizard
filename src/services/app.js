@@ -10,8 +10,8 @@
 // })
 const initalState = () => ({
 	api_url: "/api.json",
-	step_section: 2,
-	step_question: 1,
+	step_section: 3,
+	step_question: 0,
 	sections: [],
 	form: {
 		nick_name: "Joao",
@@ -130,7 +130,6 @@ new Vue({
 			let details = this.details[this.current_section.title] ?? {}
 			let keys = Object.keys(details)
 			let qty = Object.keys(keys).length ?? 0
-			console.log("aqui", keys, qty)
 			return qty
 		}
 	},
