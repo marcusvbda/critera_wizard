@@ -19,6 +19,8 @@
 	.progress-section .step {
 		width: 100%;
 		margin-right: 0;
+		padding-left: 0;
+		border: unset;
 	}
 	.progress-section .step {
 		display: none!important;
