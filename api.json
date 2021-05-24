@@ -255,6 +255,7 @@
 				},
 				{
 					"condition" : "gender",
+					"condition_type": "=", 
 					"Masculino" : {
 						"text" : "<p>Urologia<p>",
 						"subtext" : "Dos problemas de saúde listados abaixo, selecione aqueles que você já teve ou tem atualmente.",
@@ -323,6 +324,7 @@
 				},
 				{
 					"condition" : "smoker",
+					"condition_type": "=", 
 					"Sim" : {
 						"text" : "<p>Quanto tempo depois de acordar você fuma o primeiro cigarro?<p>",
 						"input" : {
@@ -346,6 +348,7 @@
 				},
 				{
 					"condition" : "smoker",
+					"condition_type": "=", 
 					"Sim" : {
 						"text" : "<p>Qual o cigarro mais difícil de largar de fumar?<p>",
 						"input" : {
@@ -353,6 +356,401 @@
 							"type" : "radio",
 							"validation_rule" : "\\S",
 							"options" : ["O primeiro da manhã","Qualquer outro"]
+						}
+					}
+				},
+				{
+					"condition" : "smoker",
+					"condition_type": "=", 
+					"Sim" : {
+						"text" : "<p>Quantos cigarros você fuma por dia?<p>",
+						"input" : {
+							"field" : "cigarette_per_day" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Menos de 10 cigarros","Entre 11 e 20 cigarros","Entre 21 e 30 cigarros","Mais de 30 cigarros"]
+						}
+					}
+				},
+				{
+					"condition" : "smoker",
+					"condition_type": "=", 
+					"Sim" : {
+						"text" : "<p>Você fuma mais freqüentemente nas primeiras horas do dia do que durante o resto do dia?<p>",
+						"input" : {
+							"field" : "cigarette_frequency" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Sim","Não"]
+						}
+					}
+				},
+				{
+					"condition" : "smoker",
+					"condition_type": "=", 
+					"Sim" : {
+						"text" : "<p>Você fuma mesmo estando doente ao ponto de ficar acamado na maior parte do dia?<p>",
+						"input" : {
+							"field" : "sic_smoker" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Sim","Não"]
+						}
+					}
+				},
+				{
+					"text" : "<p>Com que frequência consome bebidas que contêm álcool?<p>",
+					"subtext" : "Por exemplo: igrejas, local de trabalho, cinemas, shoppings, etc...",
+					"input" : {
+						"field" : "drink_frequency" ,
+						"default" : [],
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nunca","Uma vez por mês ou menos","Duas a quatro vezes por mês","Duas a três vezes por semanas","Quatro ou mais vezes por semana"]
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Quando bebe, quantas bebidas contendo álcool consome num dia normal?<p>",
+						"input" : {
+							"field" : "qty_drinks_per_day" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Uma ou duas","Três ou quatro","Cinco ou seis","De sete a nove","Dez ou mais"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Com que frequência consome seis bebidas ou mais numa única ocasião?<p>",
+						"input" : {
+							"field" : "six_drink_frequency" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nunca","Pelo menos uma vez por mês","Pelo menos uma vez por semana","Diariamente ou quase diariamente"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Nos últimos 12 meses, com que frequência se apercebeu de que não conseguia parar de beber depois de começar?<p>",
+						"input" : {
+							"field" : "difficulty_drink_stop_12_months" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nunca","Pelo menos uma vez por mês","Pelo menos uma vez por semana","Diariamente ou quase diariamente"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Nos últimos 12 meses, com que frequência não conseguiu cumprir as tarefas que habitualmente lhe exigem por ter bebido?<p>",
+						"input" : {
+							"field" : "difficulty_to_do_tasks_drunk" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nunca","Pelo menos uma vez por mês","Pelo menos uma vez por semana","Diariamente ou quase diariamente"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Nos últimos 12 meses, com que frequência precisou de beber logo de manhã para \"curar\" uma ressaca?<p>",
+						"input" : {
+							"field" : "medicine_to_hangover_frequency" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nunca","Pelo menos uma vez por mês","Pelo menos uma vez por semana","Diariamente ou quase diariamente"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Nos últimos 12 meses, com que frequência não se lembrou do que aconteceu na noite anterior por causa de ter bebido?<p>",
+						"input" : {
+							"field" : "alcoholic_amnesia_frequency" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nunca","Pelo menos uma vez por mês","Pelo menos uma vez por semana","Diariamente ou quase diariamente"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Nos últimos 12 meses, com que frequência não se lembrou do que aconteceu na noite anterior por causa de ter bebido?<p>",
+						"input" : {
+							"field" : "alcoholic_amnesia_frequency" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nunca","Pelo menos uma vez por mês","Pelo menos uma vez por semana","Diariamente ou quase diariamente"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Já alguma vez ficou ferido ou ficou alguém ferido por você ter bebido?<p>",
+						"input" : {
+							"field" : "hurt_by_drinking" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Não","Sim, mas não nos últimos 12 meses","Sim, aconteceu nos últimos 12 meses"]
+						}
+					}
+				},
+				{
+					"condition" : "drink_frequency",
+					"condition_type": "!=", 
+					"Nunca" : {
+						"text" : "<p>Já alguma vez um familiar, amigo, médico ou profissional de saúde manifestou preocupação pelo seu consumo de álcool ou sugeriu que deixasse de beber?<p>",
+						"input" : {
+							"field" : "concern_for_alcoholism" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Não","Sim, mas não nos últimos 12 meses","Sim, aconteceu nos últimos 12 meses"]
+						}
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, quando você geralmente foi para a cama a noite?<p>",
+					"input" : {
+						"field" : "sleeping_time_last_month" ,
+						"default" : [],
+						"type" : "text",
+						"placeholder" : "Ex: 22:00h",
+						"validation_rule" : "\\d\\d:\\d\\d"
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, quanto tempo (em minutos) você geralmente levou para dormir a noite?<p>",
+					"input" : {
+						"field" : "time_to_sleep_in_minutes" ,
+						"default" : [],
+						"type" : "text",
+						"placeholder" : "Ex: 30 minutos",
+						"validation_rule" : "\\S"
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, quando você geralmente levantou de manhã?<p>",
+					"input" : {
+						"field" : "wakeup_time_last_month" ,
+						"default" : [],
+						"type" : "text",
+						"placeholder" : "Ex: 10:00h",
+						"validation_rule" : "\\d\\d:\\d\\d"
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Não conseguiu adormecer em até 30 minutos?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_time_to_sleep" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Sentiu muito frio?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_interrupted_cold" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Precisou levantar para ir ao banheiro?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_bathroom" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Não conseguiu respirar confortavelmente?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_breathing_hard" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Tossiu ou roncou forte?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_snore" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Tossiu ou roncou forte?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_snore" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Sentiu muito calor?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_hot" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Teve sonhos ruins?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_nightmare" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
+					"subtext" : "Teve dor?",
+					"input" : {
+						"field" : "difficulty_to_wakeup_pain" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês como você classificaria a qualidade do seu sono de uma maneira geral?<p>",
+					"input" : {
+						"field" : "sleep_quality" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Muito boa","Boa","Ruim","Muito ruim"]
+					}
+				},
+				{
+					"text" : "<p>No último mês, que frequencia você teve dificuldade para ficar acordado enquanto dirigia, comia ou participava de uma atividade social?<p>",
+					"subtext" : "Ex: festa, reunião de amigos",
+					"input" : {
+						"field" : "difficulty_staying_awake_driving" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+					}
+				},
+				{
+					"text" : "<p>Durante o último mês, quão problemático foi pra você manter o entusiasmo (ânimo) para fazer as coisas (suas atividades habituais)?<p>",
+					"subtext" : "Ex: festa, reunião de amigos",
+					"input" : {
+						"field" : "enthusiasm" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhuma dificuldade"," Um problema leve","Um problema razoável","Um grande problema"]
+					}
+				},
+				{
+					"text" : "<p>Você tem um parceiro (a), esposo (a) ou colega de quarto?<p>",
+					"input" : {
+						"field" : "have_a_partner" ,
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não"," Parceiro ou colega, mas em outro quarto","Parceiro no mesmo quarto, mas em outra cama","Parceiro na mesma cama"]
+					}
+				},
+				{
+					"condition" : "have_a_partner",
+					"condition_type": "!=", 
+					"Não" : {
+						"text" : "<p>Se você tem um parceiro ou colega de quarto pergunte a ele com que freqüência, no último mês você apresentou:<p>",
+						"subtext" : "Ronco forte?",
+						"input" : {
+							"field" : "partner_snore" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+						}
+					}
+				},
+				{
+					"condition" : "have_a_partner",
+					"condition_type": "!=", 
+					"Não" : {
+						"text" : "<p>Se você tem um parceiro ou colega de quarto pergunte a ele com que freqüência, no último mês você apresentou:<p>",
+						"subtext" : "Longas paradas de respiração enquanto dormia?",
+						"input" : {
+							"field" : "partner_apnea" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+						}
+					}
+				},
+				{
+					"condition" : "have_a_partner",
+					"condition_type": "!=", 
+					"Não" : {
+						"text" : "<p>Se você tem um parceiro ou colega de quarto pergunte a ele com que freqüência, no último mês você apresentou:<p>",
+						"subtext" : "Contrações ou puxões de pernas enquanto dormia?",
+						"input" : {
+							"field" : "partner_spasms" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+						}
+					}
+				},
+				{
+					"condition" : "have_a_partner",
+					"condition_type": "!=", 
+					"Não" : {
+						"text" : "<p>Se você tem um parceiro ou colega de quarto pergunte a ele com que freqüência, no último mês você apresentou:<p>",
+						"subtext" : "Episodios de desorientação ou confusão durante o sono?",
+						"input" : {
+							"field" : "partner_disorientation" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
+						}
+					}
+				},
+				{
+					"condition" : "have_a_partner",
+					"condition_type": "!=", 
+					"Não" : {
+						"text" : "<p>Se você tem um parceiro ou colega de quarto pergunte a ele com que freqüência, no último mês você apresentou:<p>",
+						"subtext" : "Episodios de desorientação ou confusão durante o sono?",
+						"input" : {
+							"field" : "partner_disorientation" ,
+							"type" : "radio",
+							"validation_rule" : "\\S",
+							"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
 						}
 					}
 				}

@@ -27,7 +27,7 @@
 					<div class="w-100">
 						<template v-for="(step,i) in progress_sections">
 							<template v-if="step.title && step.progress_color">
-								<span class="step" :class="{'not_current': step.index != step_section}" :style="{color : step.progress_color}">{{ step.number }}. {{ step.title }}</span>
+								<span class="step" :class="{'not_current': step.index > step_section}" :style="{color : step.progress_color}">{{ step.number }}. {{ step.title }}</span>
 							</template>
 						</template>
 					</div>
