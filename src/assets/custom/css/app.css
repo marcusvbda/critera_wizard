@@ -117,6 +117,10 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 	margin-bottom: 12px;
 }
 
+.question-section .text.finished {
+	font-size: 32px;
+}
+
 .question-section .subtext {
 	font-family: Votorantim Sans;
 	font-style: normal;
@@ -219,6 +223,10 @@ input[type="text"]::placeholder, select.form-control::placeholder {
     border-radius: 100%;
     right: 0;
     position: absolute;
+}
+
+.progress-section .progress-row .progress .progress-bar.current.hideball::after {
+	display: none;
 }
 
 .progress-section .progress-row .progress .progress-bar .value {

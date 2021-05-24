@@ -35,8 +35,8 @@
 						<template v-for="(step,i) in progress_sections">
 							<template v-if="step.title && step.progress_color">
 								<div class="progress" :style="{width : `${100 / progress_sections.filter(x=>x.title && x.progress_color).length+adicional_steps}%`}">
-									<div class="progress-bar" :class="{'current' : step_section == step.index}" role="progressbar" :style="{width : getProgressSectionPercentage(step),backgroundColor : step.progress_color}" aria-valuemin="0" aria-valuemax="100">
-										<div class="value">
+									<div class="progress-bar" :class="{'current' : step_section == step.index,'hideball' : finished}" role="progressbar" :style="{width : getProgressSectionPercentage(step),backgroundColor : step.progress_color}" aria-valuemin="0" aria-valuemax="100">
+										<div class="value" v-if="!finished">
 											{{ step_question+1+adicional_steps }}/{{ step.total_questions+adicional_steps }}
 										</div>
 									</div>
@@ -46,7 +46,7 @@
 					</div>
 				</div>
 			</nav>
-			<div class="container-fluid critera h-100 d-flex flex-column">
+			<div class="container-fluid critera h-100 d-flex flex-column" v-if="!finished">
 				<template v-if="!showing_confirm">
 					<div class="question-section mt-5">
 						<h1 class="text" v-if="current_question.text">
@@ -189,6 +189,20 @@
 						</div>
 					</div>
 				</template>
+			</div>
+			<div class="container-fluid critera h-100 d-flex flex-column" v-else>
+				<div class="question-section mt-auto">
+					<h1 class="text finished container" v-if="current_question.text">
+						Obrigado por participar...
+					</h1>
+				</div>
+				<div class="buttons-section mt-auto">
+					<div class="row">
+						<div class="col-12 d-flex justify-content-end">
+							<button class="btn criteria">Sair</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>

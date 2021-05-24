@@ -871,6 +871,151 @@
 						"validation_rule" : "\\S",
 						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
 					}
+				},
+				{
+					"text" : "<p>Tive tremores</p>",
+					"input" : {
+						"field" : "tremors",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu senti que estava bastante nervoso(a)</p>",
+					"input" : {
+						"field" : "nervous",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu fiquei preocupado(a) com situações em que poderia entrar em pânico e fazer papel de bobo(a)</p>",
+					"input" : {
+						"field" : "panic",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu senti que não tinha expectativas positivas a respeito de nada</p>",
+					"input" : {
+						"field" : "positive_expectations",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Notei que estava ficando agitado(a)</p>",
+					"input" : {
+						"field" : "hectic",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Notei que estava ficando agitado(a)</p>",
+					"input" : {
+						"field" : "hectic",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Achei difícil relaxar</p>",
+					"input" : {
+						"field" : "relax",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu me senti abatido(a) e triste</p>",
+					"input" : {
+						"field" : "sad",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu não tive paciência com coisas que interromperam o que estava fazendo</p>",
+					"input" : {
+						"field" : "patience",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu senti que estava prestes a entrar em pânico</p>",
+					"input" : {
+						"field" : "about_to_panic",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Não consegui me empolgar com nada</p>",
+					"input" : {
+						"field" : "dont_get_excited",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu senti que não tinha muito valor como pessoa</p>",
+					"input" : {
+						"field" : "value_as_a_person",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu senti que eu estava muito irritado(a)</p>",
+					"input" : {
+						"field" : "irritated",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu percebi as batidas do meu coração mais aceleradas sem ter feito esforço físico</p>",
+					"subtext" : "(por exemplo, a sensação de aumento dos batimentos cardíacos, ou de que o coração estava batendo fora do ritmo)",
+					"input" : {
+						"field" : "accelerated_heart",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu me senti assustado(a) sem ter motivo</p>",
+					"input" : {
+						"field" : "scared",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
+				},
+				{
+					"text" : "<p>Eu senti que a vida não tinha sentido</p>",
+					"input" : {
+						"field" : "not_sense_life",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Não aconteceu comigo nessa semana","Aconteceu comigo algumas vezes na semana","Aconteceu comigo em boa parte da semana","Aconteceu comigo na maior parte do tempo da semana"]
+					}
 				}
 			]
 		}
