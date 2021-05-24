@@ -70,6 +70,9 @@ const initalState = () => ({
 		partner_apnea: "Nenhuma no último mês",
 		partner_spasms: "Nenhuma no último mês",
 		partner_disorientation: "Nenhuma no último mês",
+		physical_activity_vigorous_frequency: "Nenhum dia por semana",
+		physical_activity_moderate_frequency: "Nenhum dia por semana",
+		walking_frequency: "Nenhum dia por semana",
 	},
 	visible: false,
 	showing_confirm: false,
@@ -140,7 +143,7 @@ new Vue({
 		},
 		input() {
 			let current_question = this.getCurrentQuestion()
-			return current_question?.input ?? {}
+			return current_question?.input ?? false
 		},
 		has_more_question() {
 			return this.current_section?.computed_questions.length > (this.step_question + 1)
@@ -171,6 +174,9 @@ new Vue({
 			return steps
 		},
 		can_next() {
+			if (!this.input) {
+				return true
+			}
 			let input_success = this.form[this.input.field] != undefined && this.testRegex(this.input.validation_rule, this.form[this.input.field])
 			let passed_others = true
 			if (this.others_selected) {
@@ -217,8 +223,10 @@ new Vue({
 			return question
 		},
 		defineDefaultValues(question) {
-			if (this.form[question.input.field] == undefined) {
-				this.$set(this.form, question.input.field, question.input.default ?? null)
+			if (question?.input) {
+				if (this.form[question.input.field] == undefined) {
+					this.$set(this.form, question.input.field, question.input.default ?? null)
+				}
 			}
 		},
 		testRegex(rule, value) {

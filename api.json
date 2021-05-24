@@ -672,7 +672,7 @@
 						"field" : "enthusiasm" ,
 						"type" : "radio",
 						"validation_rule" : "\\S",
-						"options" : ["Nenhuma dificuldade"," Um problema leve","Um problema razoável","Um grande problema"]
+						"options" : ["Nenhuma dificuldade","Um problema leve","Um problema razoável","Um grande problema"]
 					}
 				},
 				{
@@ -753,6 +753,49 @@
 							"options" : ["Nenhuma no último mês","Menos de 1 vez por semana","1 ou 2 vezes por semana","3 ou mais vezes na semana"]
 						}
 					}
+				},
+				{
+					"text" : "<p>Ao responder às questões considere apenas as atividades físicas que realize durante pelo menos 10 minutos seguidos.<p>"
+				},
+				{
+					"text" : "<p>Habitualmente, por semana, quantos dias faz atividades físicas vigorosas como levantar e/ou transportar objectos pesados, cavar, ginástica aeróbica ou andar de bicicleta a uma velocidade acelerada?<p>",
+					"input" : {
+						"field" : "physical_activity_vigorous_frequency",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhum dia por semana","1 à 7 dias por semana"]
+					}
+				},
+				{
+					"text" : "<p>Normalmente, por semana, quantos dias faz atividade física moderada como levantar e/ou transportar objetos leves, andar de bicicleta a uma velocidade moderada ou jogar ténis? (Não inclua o andar/caminhar).<p>",
+					"input" : {
+						"field" : "physical_activity_moderate_frequency",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhum dia por semana","1 à 7 dias por semana"]
+					}
+				},
+				{
+					"text" : "<p>Habitualmente, por semana, quantos dias caminha durante pelo menos 10 minutos seguidos?<p>",
+					"subtext" : "Inclua caminhadas para o trabalho e para casa, para se deslocar de um lado para outro e qualquer outra caminhada que possa fazer somente para recreação, desporto ou lazer.",
+					"input" : {
+						"field" : "walking_frequency",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhum dia por semana","1 à 7 dias por semana"]
+					}
+				},
+				{
+					"text" : "As últimas questões referem-se ao tempo que está sentado diariamente no trabalho, em casa, no percurso para o trabalho e durante os tempos livres. Estas questões incluem o tempo em que está sentado numa secretária, a visitar amigos, a ler ou sentado/deitado a ver televisão."
+				},
+				{
+					"text" : "<p>Quanto tempo costuma estar sentado num dia de semana?<p>",
+					"input" : {
+						"field" : "sitting_time",
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Nenhum tempo","Mais de 30 minutos"]
+					}
 				}
 			]
 		},
@@ -760,7 +803,11 @@
 			"number" : "04",
 			"title" : "Saúde Mental",
 			"progress_color": "#2A2F6E",
-			"questions" : []
+			"questions" : [
+				{
+					"text" : "teste"
+				}
+			]
 		}
 	]
 }
