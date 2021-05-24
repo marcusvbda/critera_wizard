@@ -1,6 +1,7 @@
 {
 	"sections" : [
 		{
+			"show_level_crud" : true,
 			"questions" : [
 				{
 					"text" : "<p>Oi, tudo bem?</p>Seja bem vindo à Critera<p>",
@@ -17,6 +18,7 @@
 		{
 			"title" : "01. Informações pessoais",
 			"progress_color": "#AED145",
+			"show_level_crud" : true,
 			"questions" : [
 				{
 					"text" : "<p>{{context.nick_name}}, qual é seu nome completo ?<p>",
@@ -320,7 +322,18 @@
 		{
 			"title" : "03. Hábitos",
 			"progress_color": "#71CBE6",
-			"questions" : []
+			"questions" : [
+				{
+					"text" : "<p>Você fuma?<p>",
+					"input" : {
+						"field" : "smoker" ,
+						"default" : [],
+						"type" : "radio",
+						"validation_rule" : "\\S",
+						"options" : ["Sim","Não","Não fuma há mais de 6 meses"]
+					}
+				}
+			]
 		},
 		{
 			"title" : "04. Saúde Mental",

@@ -324,3 +324,15 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 	line-height: 26px;
 	color: #999999;
 }
+
+.detail-row b {
+	margin-top: 44px;
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 26px;
+	display: flex;
+	align-items: center;
+	color: #212721;
+}

@@ -5,17 +5,18 @@
 // 	sections: [],
 // 	form: {},
 // 	visible: false,
-//  showing_confirm : false,
+// 	showing_confirm: false,
+//  details : {}
 // })
 const initalState = () => ({
 	api_url: "/api.json",
-	step_section: 2,
-	step_question: 9,
+	step_section: 3,
+	step_question: 1,
 	sections: [],
 	form: {
-		nick_name: "Vinicius",
-		full_name: "Vinicius Bassalobre",
-		doc_number: "406.145.898-19",
+		nick_name: "Joao",
+		full_name: "Joao da Silva",
+		doc_number: "111.111.111-19",
 		birthdate: "08/04/1992",
 		gender: "Masculino",
 		marital_status: "Namorando",
@@ -34,10 +35,12 @@ const initalState = () => ({
 		otorhinolaryngology: ['Nenhuma das opções'],
 		urology: ['Nenhuma das opções'],
 		skin: ['Nenhuma das opções'],
-		allergies: ['Nenhuma das opções']
+		allergies: ['Nenhuma das opções'],
+		smoker: ["Sim"]
 	},
 	visible: false,
-	showing_confirm: false
+	showing_confirm: false,
+	details: {},
 })
 
 Vue.directive('mask', VueMask.VueMaskDirective)
@@ -52,18 +55,21 @@ new Vue({
 	watch: {
 		step_question() {
 			this.showing_confirm = false
+		},
+		details: {
+			handler(val) {
+				console.log(val)
+			},
+			deep: true
 		}
-		// 	form: {
-		// 		handler(val) {
-		//			console.log(val)
-		// 		},
-		// 		deep: true
-		// 	}
 	},
 	computed: {
 		show_level_crud() {
 			let has_show = this.current_section?.show_level_crud ? true : false
-			let has_input = this.form[this.input.field].filter(x => !['Nenhuma das opções', 'Outras'].includes(x)).length > 0
+			let has_input = false
+			if (Array.isArray(this.form[this.input.field])) {
+				has_input = this.form[this.input.field].filter(x => !['Nenhuma das opções', 'Outras'].includes(x)).length > 0
+			}
 			return has_show && has_input
 		},
 		global_index() {
@@ -113,6 +119,11 @@ new Vue({
 				passed_others = this.form[`${this.input.field}_others`] ? true : false
 			}
 			return input_success && passed_others
+		},
+		can_next_details() {
+			let details = this.details[this.input.field]
+			let passed = Object.keys(details).map(x => details[x]).filter(x => !x).length == 0
+			return passed
 		}
 	},
 	methods: {
@@ -162,6 +173,10 @@ new Vue({
 		},
 		nextQuestion(confirmed = false) {
 			if (this.show_level_crud && !confirmed) {
+				this.$set(this.details, this.input.field, {})
+				this.form[this.input.field].forEach(x => {
+					this.$set(this.details[this.input.field], x, null)
+				})
 				return this.showing_confirm = true
 			}
 			if (this.has_more_question) {
