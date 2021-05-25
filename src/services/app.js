@@ -1,19 +1,16 @@
 const initalState = () => ({
-	api_url: "/api.json",
 	step_section: 0,
 	step_question: 0,
 	finished: false,
-	sections: [],
+	sections,
 	form: {},
-	visible: false,
 	showing_confirm: false,
 	details: {}
 })
 // const initalState = () => ({
-// 	api_url: "/api.json",
 // 	step_section: 4,
 // 	step_question: 23,
-// 	sections: [],
+// 	sections,
 // 	finished: false,
 // 	form: {
 // 		nick_name: "Joao",
@@ -99,7 +96,6 @@ const initalState = () => ({
 // 		scared: "Não aconteceu comigo nessa semana",
 // 		not_sense_life: "Não aconteceu comigo nessa semana",
 // 	},
-// 	visible: false,
 // 	showing_confirm: false,
 // 	details: {},
 // })
@@ -109,9 +105,6 @@ new Vue({
 	el: '#app',
 	data() {
 		return initalState()
-	},
-	created() {
-		this.loadSections()
 	},
 	watch: {
 		step_question() {
@@ -265,14 +258,6 @@ new Vue({
 			let current = this.step_question + 1
 			let percentage = Math.round(current * 100 / total)
 			return `${percentage}%`
-		},
-		loadSections() {
-			fetch(this.api_url).then(resp => {
-				resp.json().then(data => {
-					this.sections = data.sections
-					this.visible = true
-				})
-			})
 		},
 		nextQuestion(confirmed = false) {
 			if (this.show_level_crud && !confirmed) {
