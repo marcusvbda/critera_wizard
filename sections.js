@@ -490,19 +490,6 @@ const sections = [
 				"condition": "drink_frequency",
 				"condition_type": "!=",
 				"Nunca": {
-					"text": "<p>Nos últimos 12 meses, com que frequência não se lembrou do que aconteceu na noite anterior por causa de ter bebido?<p>",
-					"input": {
-						"field": "alcoholic_amnesia_frequency",
-						"type": "radio",
-						"validation_rule": "\\S",
-						"options": ["Nunca", "Pelo menos uma vez por mês", "Pelo menos uma vez por semana", "Diariamente ou quase diariamente"]
-					}
-				}
-			},
-			{
-				"condition": "drink_frequency",
-				"condition_type": "!=",
-				"Nunca": {
 					"text": "<p>Já alguma vez ficou ferido ou ficou alguém ferido por você ter bebido?<p>",
 					"input": {
 						"field": "hurt_by_drinking",
@@ -567,9 +554,9 @@ const sections = [
 			},
 			{
 				"text": "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
-				"subtext": "Sentiu muito frio?",
+				"subtext": "Acordou no meio da noite ou de manhã cedo?",
 				"input": {
-					"field": "difficulty_to_wakeup_interrupted_cold",
+					"field": "difficulty_to_wakeup_middle",
 					"type": "radio",
 					"validation_rule": "\\S",
 					"options": ["Nenhuma no último mês", "Menos de 1 vez por semana", "1 ou 2 vezes por semana", "3 ou mais vezes na semana"]
@@ -607,9 +594,9 @@ const sections = [
 			},
 			{
 				"text": "<p>Durante o último mês, com que frequência você teve dificuldade para dormir porque você:<p>",
-				"subtext": "Tossiu ou roncou forte?",
+				"subtext": "Sentiu muito frio?",
 				"input": {
-					"field": "difficulty_to_wakeup_snore",
+					"field": "difficulty_to_wakeup_interrupted_cold",
 					"type": "radio",
 					"validation_rule": "\\S",
 					"options": ["Nenhuma no último mês", "Menos de 1 vez por semana", "1 ou 2 vezes por semana", "3 ou mais vezes na semana"]
@@ -902,15 +889,6 @@ const sections = [
 				"text": "<p>Eu senti que não tinha expectativas positivas a respeito de nada</p>",
 				"input": {
 					"field": "positive_expectations",
-					"type": "radio",
-					"validation_rule": "\\S",
-					"options": ["Não aconteceu comigo nessa semana", "Aconteceu comigo algumas vezes na semana", "Aconteceu comigo em boa parte da semana", "Aconteceu comigo na maior parte do tempo da semana"]
-				}
-			},
-			{
-				"text": "<p>Notei que estava ficando agitado(a)</p>",
-				"input": {
-					"field": "hectic",
 					"type": "radio",
 					"validation_rule": "\\S",
 					"options": ["Não aconteceu comigo nessa semana", "Aconteceu comigo algumas vezes na semana", "Aconteceu comigo em boa parte da semana", "Aconteceu comigo na maior parte do tempo da semana"]

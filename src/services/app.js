@@ -9,7 +9,7 @@ const initalState = () => ({
 })
 // const initalState = () => ({
 // 	step_section: 4,
-// 	step_question: 23,
+// 	step_question: 12,
 // 	sections,
 // 	finished: false,
 // 	form: {
@@ -95,6 +95,10 @@ const initalState = () => ({
 // 		accelerated_heart: "Não aconteceu comigo nessa semana",
 // 		scared: "Não aconteceu comigo nessa semana",
 // 		not_sense_life: "Não aconteceu comigo nessa semana",
+// 		concern_for_alcoholism: "Não",
+// 		difficulty_to_wakeup_middle: "Nenhuma no último mês",
+// 		difficulty_to_wakeup_nightmare: "Nenhuma no último mês",
+
 // 	},
 // 	showing_confirm: false,
 // 	details: {},
