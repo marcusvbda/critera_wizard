@@ -55,7 +55,7 @@
 			</nav>
 			<div class="container-fluid critera h-100 d-flex flex-column" v-if="!finished">
 				<template v-if="!showing_confirm">
-					<div class="question-section mt-5">
+					<div class="question-section mt-5" :class="{'question-section d-flex flex-column flex-grow-1 mt-5' : current_card_text}">
 						<h1 class="text" v-if="current_question.text">
 							<dynamic-component :template-html="current_question.text" :key="`${global_index}_text`" :context="form" />
 						</h1>
@@ -65,9 +65,22 @@
 							</div>
 							<div class="separator"></div>
 						</div>
+						<div class="cardtext" v-if="current_card_text">
+							<div v-html="current_card_text" class="content"></div>
+						</div>
 					</div>
 					<div class="answer-section my-3" v-if="input">
 						<div class="row">
+							<div class="col-md-6 col-sm-12" v-if="['check'].includes(input.type)">
+								<div class="input-group checkbox" :class="{'is-success' : testRegex(input.validation_rule,form[input.field])}">
+									<label>
+										<input type="checkbox" v-model="form[input.field]" />
+										<i class="fas fa-dot-circle icon" v-if="input.validation_rule,form[input.field]"></i>
+										<i class="far fa-circle icon" v-else></i>
+										{{ input.placeholder }}
+									</label>
+								</div>
+							</div>
 							<div class="col-md-6 col-sm-12" v-if="['text'].includes(input.type)">
 								<div class="input-group" :class="{'is-success' : testRegex(input.validation_rule,form[input.field])}">
 									<input :type="input.type" v-mask="input.mask" class="form-control" :placeholder="input.placeholder" v-model="form[input.field]" />

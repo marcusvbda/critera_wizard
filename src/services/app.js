@@ -8,8 +8,8 @@ const initalState = () => ({
 	details: {}
 })
 // const initalState = () => ({
-// 	step_section: 4,
-// 	step_question: 12,
+// 	step_section: 0,
+// 	step_question: 1,
 // 	sections,
 // 	finished: false,
 // 	form: {
@@ -98,7 +98,6 @@ const initalState = () => ({
 // 		concern_for_alcoholism: "Não",
 // 		difficulty_to_wakeup_middle: "Nenhuma no último mês",
 // 		difficulty_to_wakeup_nightmare: "Nenhuma no último mês",
-
 // 	},
 // 	showing_confirm: false,
 // 	details: {},
@@ -122,6 +121,10 @@ new Vue({
 		}
 	},
 	computed: {
+		current_card_text() {
+			if (!this.current_question.card_text) return false
+			return this.current_question.card_text.replace(/\n/g, "<br>")
+		},
 		computed_sections() {
 			let original_sections = Object.assign([], this.sections)
 			let computed = original_sections.map(section => {

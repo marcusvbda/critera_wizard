@@ -11,6 +11,24 @@ const sections = [
 					"type": "text",
 					"validation_rule": "\\S"
 				}
+			},
+			{
+				"text": "<p>Termos e Condições de Uso Critera<p>",
+				"card_text": `COMPART SERVIÇOS E ASSESSORIAS LTDA., sociedade limitada, inscrita no CNPJ/MF sob o nº 30.468.108/0001-74, com sede na Cidade de São Paulo, Estado de São Paulo, na Avenida José César de Oliveira, 111, 8º andar - Vila Leopoldina – CEP: 01448-000, única e exclusiva proprietária das marcas e dos domínios associados ao Site doravante, em conjunto, denominados simplesmente “COMPART”, estabelece as presentes condições de uso para a utilização do (“Termo de Uso”).
+
+				1. DEFINIÇÕES
+				
+				1.1. Os termos constantes neste Termo de Uso Assessment de Saúde Critera “CRITERA”, sempre que usados com a primeira letra em maiúsculo, terão o significado estabelecido abaixo, seja no plural ou no singular:
+				
+				(a) Aceitar ou Aceite: significa o ato da Contratante aceitar este Termo de Uso e a Política de Privacidade. Tal ato implica no seu consentimento prévio, expresso e informado em relação a todo o disposto em tais documentos.
+				
+				(b) Assessment de Saúde Critera: sistema desenvolvido pela CRITERA, para coleta de dados pessoais de saúde para composição de perfil de risco de saúde populacional e para avaliação de hábitos de saúde, doenças pré-existentes, doenças crônicas, comportamentais e mentais para direcionamento de programas de bem-estar e ações de promoção ao cuidado populacional.`,
+				"input": {
+					"placeholder": "Li e aceito os termos acima",
+					"field": "accept_terms",
+					"type": "check",
+					"validation_rule": "^true$"
+				}
 			}
 		]
 	},

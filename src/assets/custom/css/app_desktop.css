@@ -65,8 +65,44 @@ input[type="text"], select.form-control {
 	background-position: cover;
 	background-repeat: no-repeat;
 }
-  
-  
+
+.input-group.checkbox {
+	font-family: Votorantim Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 140.62%;
+	display: flex;
+	align-items: center;
+	color: #999999;
+}
+
+.input-group.checkbox.is-success  {
+	color: #AED145
+}
+
+.input-group.checkbox.is-success::before  {
+	display: none;
+}
+
+.input-group.checkbox input  {
+	display: none;
+}
+
+.input-group.checkbox label {
+	display: flex;
+	flex-direction: row;
+}
+
+.input-group.checkbox label .icon {
+	font-size: 24px;
+	margin-right: 12px;
+}
+
+.input-group.checkbox label .icon.fa-dot-circle {
+	color: #AED145
+}
+    
 input[type="text"]:focus, select.form-control:focus {
 	background: transparent;
 	-webkit-box-shadow: none;
@@ -81,7 +117,6 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 	font-family: Votorantim Sans;
 	font-style: normal;
 }
-
 
 .critera.navbar {
 	background-color: #2A2F6E;
@@ -345,4 +380,21 @@ input[type="text"]::placeholder, select.form-control::placeholder {
 	display: flex;
 	align-items: center;
 	color: #212721;
+}
+
+.cardtext {
+	margin-top: 20px;
+	width: 100%;
+	height: 300px;
+	background: #FFFFFF;
+	border-radius: 16px;
+	padding: 32px;
+	display: flex;
+    flex-grow: 1;
+}
+
+.cardtext .content {
+	overflow-y: scroll;
+	max-height: 100%;
+	padding-right: 10px;
 }
